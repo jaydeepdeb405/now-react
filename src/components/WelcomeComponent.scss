@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    margin: 0 10%;
+    text-align: center;
+}
+
+.heading {
+    font-size: 2em;
+    color: white;
+}
+
+.links {
+    margin: 20px auto;
+}
+
+.link {
+    text-align: center;
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.info {
+    font-size: 1.3em;
+    color: white;
+}
+
+.react-logo {
+    height: 400px;
+    width: 400px;
+    background: url('../images/react-logo.png');
+    background-size: cover;
+    animation: rotate 10s infinite linear;
+}
+
+.sn-logo {
+    height: 120px;
+    width: 400px;
+    background: url('../images/sn-logo.png');
+    background-size: cover;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
