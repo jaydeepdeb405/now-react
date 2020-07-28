@@ -34,8 +34,11 @@ const DEFAULT_CONFIG = {
                     .catch(error => console.log(error));
             })
             .catch(error => {
-                error.hasOwnProperty('response') ? console.log(`Error while uploading script, Error : ${error.response.data.error.message}`) :
-                    console.log(`Error while uploading script, Error : ${error.message}`);
+                if (error.response && Object.prototype.hasOwnProperty.call(error.response, 'data') === true &&
+                    Object.prototype.hasOwnProperty.call(error.response.data, 'error') === true)
+                    console.log(`Error while uploading script, Error : ${error.response.data.error.message || ''}`);
+                else
+                    console.log(`Error while uploading script, Error : ${error.message || error}`);
             });
     }
     catch (error) {
@@ -80,9 +83,11 @@ function _handleAssets() {
                                         resolve();
                                     })
                                     .catch(error => {
-                                        error.hasOwnProperty('response') === true ?
-                                            console.log(`${image.name} - Attachment upload error : ${error.response.data.error.message}, ${error.response.data.error.detail}`) :
-                                            console.log(`${image.name} - Attachment upload error : ${error.message}`);
+                                        if (error.response && Object.prototype.hasOwnProperty.call(error.response, 'data') === true &&
+                                            Object.prototype.hasOwnProperty.call(error.response.data, 'error') === true)
+                                            console.log(`${image.name} - Attachment upload error : ${error.response.data.error.message || ''}, ${error.response.data.error.detail || ''}`);
+                                        else
+                                            console.log(`${image.name} - Attachment upload error : ${error.message || error}`);
                                         reject();
                                     });
                             }));
