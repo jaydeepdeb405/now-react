@@ -36,6 +36,7 @@ These modules can be used to manage (create/delete) React applications inside th
     - Deployment mode - This bundles the whole project along with all the image assets & deploys it to the configured ServiceNow instance. The bundled scripts & assets can be found under /dist directory. Can be started by 'npm run build'.
 
 ### Known issues:
+**UPDATE: All requests to ServiceNow instances are now proxied. No plugin required.**   
 > CORS error in development mode   
 In development mode, during ajax calls users may face CORS errors, this is not a bug, its just standard HTTP access control to control HTTP requests origination from client side to server side.   
 Workaround is to use a browser extenstion to avoid CORS errors, which auto inserts the CORS headers to each API request
