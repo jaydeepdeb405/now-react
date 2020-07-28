@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config ./config/webpack.production.cfg.js & node index.js",
-    "start": "webpack-dev-server --progress --config ./config/webpack.development.cfg.js"
+    "start": "webpack-dev-server --progress --config ./config/webpack.development.cfg.js",
+    "pretest": "eslint --ignore-path .gitignore ."
   },
   "author": "Jaydeep Deb",
   "license": "ISC",
@@ -26,6 +27,9 @@
     "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
+    "eslint": "^7.5.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-react": "^7.20.5",
     "file-loader": "^6.0.0",
     "node-sass": "^4.14.1",
     "openurl": "^1.1.1",

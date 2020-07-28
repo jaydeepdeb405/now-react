@@ -7,7 +7,7 @@ module.exports = {
     rules: [
         {
             /*
-             * Babel loaders/presets
+             * Babel loader/presets
              */
             test: /\.js$/,
             use: [
@@ -15,12 +15,12 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            '@babel/preset-env', 
+                            '@babel/preset-env',
                             '@babel/preset-react'
                         ],
                         plugins: [
                             [
-                              "@babel/plugin-proposal-class-properties"
+                                "@babel/plugin-proposal-class-properties"
                             ]
                         ]
                     }
@@ -33,6 +33,17 @@ module.exports = {
              */
             test: /\.(sa|sc|c)ss$/i,
             use: ['style-loader', 'css-loader', 'sass-loader']
+        },
+            /*
+             * ESLint loader
+             */
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'eslint-loader',
+            options: {
+                emitWarning: true
+            }
         }
     ]
 }
