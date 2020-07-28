@@ -33,7 +33,14 @@ module.exports = {
         contentBase: commonConfig.contentBasePath,
         historyApiFallback: true,
         port: servicenowConfig.DEV_SERVER_PORT,
-        open: true
+        open: true,
+        proxy: {
+            '/api': {
+                target: servicenowConfig.HOST,
+                secure: false,
+                changeOrigin: true
+            }
+        }
     },
     plugins: [
         new webpack.DefinePlugin({
