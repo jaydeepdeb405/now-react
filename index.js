@@ -2,7 +2,10 @@ const fs = require('fs');
 const axios = require('axios');
 const servicenowConfig = require('./servicenow.config');
 
-const requestHeaders = {
+const BUNDLED_ASSETS_DIR_PATH = './dist/images';
+const BUNDLED_SCRIPT_PATH = './dist/bundle.js';
+
+const DEFAULT_CONFIG = {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -13,103 +16,107 @@ const requestHeaders = {
     }
 };
 
-(function main() {
-    const bundleData = fs.readFileSync('./dist/bundle.js', 'utf-8');
+(async function main() {
+    try {
+        const bundleData = fs.readFileSync(BUNDLED_SCRIPT_PATH, 'utf-8');
 
-    console.log('\nScript bundling complete\n\nUploading scripts...\n');
-    _uploadScriptBundle(bundleData)
-        .then(response => {
-            console.log('Script upload complete\n');
-            const pageUrl = response.data.result.pageUrl;
-            const imageAssetsPromises = _sendImageAssets();
+        console.log('\nScript bundling complete\n\nUploading scripts...\n');
+        _uploadBundledScript(bundleData)
+            .then(() => {
+                const applicationUrl = servicenowConfig.HOST + servicenowConfig.APP_URL_BASE;
+                console.log('Script upload complete\n');
 
-            Promise.all(imageAssetsPromises)
-                .then(() => {
-                    console.log(`\n${imageAssetsPromises.length} image assets processed\n`);
-                    if (pageUrl !== null) { require("openurl").open(pageUrl); console.log(`Opening application in browser : '${pageUrl}'\n`); }
-                    else console.log("Unable to open URL");
-                })
-                .catch((error) => console.log(error));
-        })
-        .catch(error => {
-            if (error.response) {
-                console.log(`Status : ${error.response.status}/${error.response.data.status}`);
-                console.log(`Error message : ${error.response.data.error.message}`);
-                console.log(`Error details : ${error.response.data.error.detail}`);
-            }
-            else console.log(`Error : ${error.message}`);
-        });
-
+                _handleAssets()
+                    .then(response => {
+                        console.log(`${response}\nOpening application in browser : '${applicationUrl}'\n`);
+                        require("openurl").open(applicationUrl);
+                    })
+                    .catch(error => console.log(error));
+            })
+            .catch(error => {
+                error.hasOwnProperty('response') ? console.log(`Error while uploading script, Error : ${error.response.data.error.message}`) :
+                    console.log(`Error while uploading script, Error : ${error.message}`);
+            });
+    }
+    catch (error) {
+        console.error(`Error while bundling script, ${error}`)
+    }
 })();
 
-function _sendImageAssets() {
-    let images = _buildImagePayload();
-    let imageUploadPromises = [];
-
-    console.log('Bundling & uploading image assets... \n');
-
-    images.forEach(image => {
-        imageUploadPromises.push(_handleImage(image));
-    });
-
-    return imageUploadPromises;
-}
-
-function _handleImage(image) {
+function _handleAssets() {
     return new Promise((resolve, reject) => {
-        _createImageFile(image).then(response => {
-            if (response.data.hasOwnProperty('result') === true && response.data.result.hasOwnProperty('sys_id') === true) {
-                image.sys_id = response.data.result.sys_id;
-                _uploadImageBinary(image)
-                    .then(() => { console.log(`${image.name} uploaded`); resolve(); })
-                    .catch(error => {
-                        if (error.response) {
-                            console.log(`${image.name} - Binary upload error : ${error.response.data.error.message}, ${error.response.data.error.detail}`);
+        try {
+            const supportedExtentions = ['jpg', 'png', 'bmp', 'gif', 'jpeg', 'ico', 'svg'];
+            let imageData = [];
+
+            console.log(`Uploading image assets...\n`);
+            fs.readdirSync(BUNDLED_ASSETS_DIR_PATH).map((fileName) => {
+                const fileExtn = fileName.split('.').pop();
+                if (supportedExtentions.indexOf(fileExtn) !== -1) {
+                    let image = {};
+                    image.name = fileName;
+                    image.format = `image/${fileExtn}`;
+                    image.scope = servicenowConfig.APP_SCOPE;
+                    imageData.push(image);
+                } else {
+                    console.error(`"${fileName}" ignored, unsupported image extension ${fileExtn}`);
+                }
+            });
+
+
+            _createDBImageRecords(imageData)
+                .then(response => {
+                    const imageRecords = response.data.result || [];
+                    let imageAttachmentsPromises = [];
+
+                    imageRecords.forEach((image) => {
+                        const operation = image.operation;
+                        if (operation === 'ignored') console.log(`"${image.name}" ignored, image with same name present`);
+                        else {
+                            imageAttachmentsPromises.push(new Promise((resolve, reject) => {
+                                _createImageAttachment(image)
+                                    .then(() => {
+                                        console.log(`"${image.name}" ${operation}`);
+                                        resolve();
+                                    })
+                                    .catch(error => {
+                                        error.hasOwnProperty('response') === true ?
+                                            console.log(`${image.name} - Attachment upload error : ${error.response.data.error.message}, ${error.response.data.error.detail}`) :
+                                            console.log(`${image.name} - Attachment upload error : ${error.message}`);
+                                        reject();
+                                    });
+                            }));
                         }
-                        else console.log(`Error : ${error.message}`);
-                        resolve();
                     });
-            }
-            else throw `${image.name} - error: image record creation failed`;
-        }).catch(error => {
-            if (error.response) {
-                console.log(`${image.name} - error: ${error.response.data.error.message}, ${error.response.data.error.detail}`);
-            }
-            else console.log(`Error : ${error.message || error}`);
-            resolve();
-        });
+                    Promise.all(imageAttachmentsPromises).then(() => resolve(`\n${imageAttachmentsPromises.length} images uploaded\n`));
+                })
+                .catch(error => {
+                    reject(`Error while creating images : ${error.message}`);
+                });
+        } catch (error) {
+            reject(`Error while handling assets, ${error}`);
+        }
     });
 }
 
-function _buildImagePayload() {
-    return fs.readdirSync('./dist/images').map((fileName) => {
-        let image = {};
-        const fileExtn = fileName.substr(fileName.lastIndexOf('.') + 1);
-        image.name = fileName;
-        image.type = `image/${fileExtn}`;
-        image.sys_id = '';
-        return image;
-    });
+function _uploadBundledScript(bundleData) {
+    return _postRequest(`/api/488924/react_spa_provider/script/${servicenowConfig.SCRIPT_RECORD_ID}`, { script: escape(bundleData) }, DEFAULT_CONFIG);
 }
 
-function _uploadScriptBundle(bundleData) {
-    return _postRequest(`/api/488924/react_spa_provider/inject_react/${servicenowConfig.SCRIPT_RECORD_ID}`, { script: escape(bundleData) }, requestHeaders);
+function _createDBImageRecords(images) {
+    return _postRequest(`/api/488924/react_spa_provider/images?overwrite=${servicenowConfig.OVERWRITE_IMAGE_ATTACHMENTS}`, { images }, DEFAULT_CONFIG);
 }
 
-function _createImageFile(image) {
-    return _postRequest('/api/now/table/db_image', { name: image.name }, requestHeaders);
-}
-
-function _uploadImageBinary(image) {
-    let headers = Object.assign({}, requestHeaders);
-    headers.headers = {
+function _createImageAttachment(image) {
+    let defaultConfig = Object.assign({}, DEFAULT_CONFIG);
+    defaultConfig.headers = {
         'Accept': 'application/json',
-        'Content-Type': image.type
+        'Content-Type': image.format
     };
-    return _postRequest(`/api/now/attachment/file?table_name=db_image&table_sys_id=${image.sys_id}&file_name=image`, fs.createReadStream(`./dist/images/${image.name}`), headers);
+    return _postRequest(`/api/now/attachment/file?table_name=db_image&table_sys_id=${image.sys_id}&file_name=image`, fs.createReadStream(`${BUNDLED_ASSETS_DIR_PATH}/${image.name}`), defaultConfig);
 }
 
-function _postRequest(relativePath, requestBody, headers) {
-    return axios.post(`${servicenowConfig.HOST}${relativePath}`, requestBody, headers);
+function _postRequest(relativePath, requestBody, config) {
+    return axios.post(`${servicenowConfig.HOST}${relativePath}`, requestBody, config);
 }
 
