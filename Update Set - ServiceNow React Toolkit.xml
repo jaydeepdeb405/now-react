@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2020-07-28 16:43:05">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>ServiceNow React Toolkit</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>0d0604cc07d9101037c7f2ae7c1ed09d</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>87ab1b510792501037c7f2ae7c1ed003</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>catalog_script_client_41085e9307cd541037c7f2ae7c1ed0c7</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="catalog_script_client"&gt;&lt;catalog_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_catalog&gt;true&lt;/applies_catalog&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;applies_req_item&gt;false&lt;/applies_req_item&gt;&lt;applies_sc_task&gt;false&lt;/applies_sc_task&gt;&lt;applies_target_record&gt;false&lt;/applies_target_record&gt;&lt;applies_to&gt;item&lt;/applies_to&gt;&lt;cat_item display_value="Create React App"&gt;2cbf637a078d141037c7f2ae7c1ed03d&lt;/cat_item&gt;&lt;cat_variable/&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Initialize Application&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+    var applicationName = g_form.getValue('title');
+	
+	var ga = new GlideAjax('ReactSPAUtil');
+    ga.addParam('sysparm_name', 'ajax_initializeUxPage');
+    ga.addParam('sysparm_application_name', applicationName);
+    ga.getXMLAnswer(function(response) {
+		g_form.setValue('title', '');
+		g_form.clearMessages();
+		if(response == null) g_form.addErrorMessage("Application with name '" + applicationName + "' exists");
+		else {
+			response = JSON.parse(response);
+			g_form.addInfoMessage("'"+applicationName+"' application created");
+			top.window.open(response.reactAppLink, '_blank');
+		}
+    });
+	
+    return false;
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;catalog_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-02 13:43:46&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;41085e9307cd541037c7f2ae7c1ed0c7&lt;/sys_id&gt;&lt;sys_mod_count&gt;28&lt;/sys_mod_count&gt;&lt;sys_name&gt;Initialize Application&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;catalog_script_client_41085e9307cd541037c7f2ae7c1ed0c7&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-06 05:19:22&lt;/sys_updated_on&gt;&lt;table/&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;variable_set/&gt;&lt;view/&gt;&lt;/catalog_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>334729789</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>0fab1b510792501037c7f2ae7c1ed003</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1728811bb3b0000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Initialize Application</target_name>
+<type>Catalog Client Scripts</type>
+<update_domain>global</update_domain>
+<update_guid>598c8da0a7d19010e396dff856cca127</update_guid>
+<update_guid_history>598c8da0a7d19010e396dff856cca127:334729789,2e2c41e023d190105c63c4be21ea7b9c:1094208159,d5eb89609fd190105cb374670fdc8547:117884894,1a6b0d60e4d19010a2f5d47c6f26493f:762922321,8c5acdec289190103b634fe6fba88920:-507625576,e247940c9c1d101000668bb497f8eff7:-1840886461,51071cc8341d1010ee93566d325e39db:-1755079080,40041c48061d1010f74e63fcbc0ef91b:-305651924,f5439408d61d1010d8732cba1e4143dc:-1755079080,19a298c4dd1d1010f672635bf40c26a1:1346640447,c4a23b9bf78194106a72f6fdc0935755:516416472,09723f9b7b819410117f8b46bf7ec161:-347176963,45027fd7ea81941073a3f8b508461ff1:634309349,e7e1f31beb41941072a39ba7c27a1737:1828005950,8bb1f39bcc819410480e8952d9ac85a5:-1551078025,9381339b4b8194104a15bbccebfcbaea:548409229,992457d7fb4194108787c8c194c4f0da:1251272425,e7049fd7ea4194100635fb11989c581d:-2010395329,ccf39fd7fc4194100dedd68d3d9b5e18:326726653,cab3dbd7614194107e8aa530e5e6f8b5:2074854172,c9a39f97e0419410eb89a8828be54168:5710644,ee2313d7bc41941079a2cf0105671768:-948156743,e6a213d7d441941033fd1a8f5cf40164:-223926589,9d72d757fb419410fd22cc5dd242f07f:-435312835,66d19797c741941085bcf00fec7c28d1:1523860326,1cea8f531241941019c7d94b00875c9f:513512791,7f8a875327419410a8682279470b9cf6:-223132001,452a431771cd541066256dafcff9085a:-1471402765,3e995ed31ecd54106fb7f60dfb0a2dd6:1783602682</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_catalog_f82cad2707c5941037c7f2ae7c1ed013</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_catalog"><sc_catalog action="INSERT_OR_UPDATE"><active>true</active><background_color>white</background_color><description/><desktop_continue_shopping/><desktop_home_page/><desktop_image>914cad2707c5941037c7f2ae7c1ed01b</desktop_image><editors/><enable_wish_list>false</enable_wish_list><manager display_value="Jaydeep Deb">6815b7450770101037c7f2ae7c1ed068</manager><sys_class_name>sc_catalog</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:03:58</sys_created_on><sys_id>f82cad2707c5941037c7f2ae7c1ed013</sys_id><sys_mod_count>2</sys_mod_count><sys_name>React SPA</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sc_catalog_f82cad2707c5941037c7f2ae7c1ed013</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:05:23</sys_updated_on><title>React SPA</title></sc_catalog><sys_translated_text action="delete_multiple" query="documentkey=f82cad2707c5941037c7f2ae7c1ed013"/><sys_attachment action="INSERT_OR_UPDATE"><average_image_color>#61dafb</average_image_color><chunk_size_bytes>700000</chunk_size_bytes><compressed>true</compressed><content_type>image/png</content_type><file_name>desktop_image</file_name><hash>9ea4f4da7050c0cc408926f6a39c253624e9babb1d43c7977cd821445a60b461</hash><image_height>512</image_height><image_width>512</image_width><size_bytes>9664</size_bytes><size_compressed>9660</size_compressed><state>available</state><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:04:10</sys_created_on><sys_id>914cad2707c5941037c7f2ae7c1ed01b</sys_id><sys_mod_count>3</sys_mod_count><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:04:10</sys_updated_on><table_name>ZZ_YYsc_catalog</table_name><table_sys_id>f82cad2707c5941037c7f2ae7c1ed013</table_sys_id></sys_attachment><sys_attachment_doc action="INSERT_OR_UPDATE"><data>H4sIAAAAAAAAAA==</data><length>16</length><position>0</position><sys_attachment display_value="desktop_image" sys_id="914cad2707c5941037c7f2ae7c1ed01b">914cad2707c5941037c7f2ae7c1ed01b</sys_attachment><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:04:10</sys_created_on><sys_id>d14cad2707c5941037c7f2ae7c1ed01b</sys_id></sys_attachment_doc><sys_attachment_doc action="INSERT_OR_UPDATE"><data>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</data><length>12868</length><position>1</position><sys_attachment display_value="desktop_image" sys_id="914cad2707c5941037c7f2ae7c1ed01b">914cad2707c5941037c7f2ae7c1ed01b</sys_attachment><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:04:10</sys_created_on><sys_id>554cad2707c5941037c7f2ae7c1ed01b</sys_id></sys_attachment_doc></record_update>]]></payload>
+<payload_hash>-1823306613</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>13ab1b510792501037c7f2ae7c1ed005</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9c7730000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>React SPA</target_name>
+<type>Catalog</type>
+<update_domain>global</update_domain>
+<update_guid>8e8640000a1d1010d43226cc2aa1fca7</update_guid>
+<update_guid_history>8e8640000a1d1010d43226cc2aa1fca7:-1823306613,2866c4ccd6d910101cdc9932b92b4996:-1823306613,178c21676bc59410e422cc9b611f53ff:-1823306613,dd4ced2755c594106accf32dedaa3d80:1819664207,d54ced2719c59410163b6c3bc23c7c7a:-685058015,623ced27e5c5941001a09b53fcb2fe18:1839706536</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>catalog_script_client_cc52218307c1541037c7f2ae7c1ed0d4</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="catalog_script_client"&gt;&lt;catalog_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_catalog&gt;true&lt;/applies_catalog&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;applies_req_item&gt;false&lt;/applies_req_item&gt;&lt;applies_sc_task&gt;false&lt;/applies_sc_task&gt;&lt;applies_target_record&gt;false&lt;/applies_target_record&gt;&lt;applies_to&gt;item&lt;/applies_to&gt;&lt;cat_item display_value="Remove React App"&gt;1301258f0781541037c7f2ae7c1ed0c4&lt;/cat_item&gt;&lt;cat_variable/&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Delete Selected UX Page&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+    var uxPageRecordId = g_form.getValue('ux_page');
+
+    var ga = new GlideAjax('ReactSPAUtil');
+    ga.addParam('sysparm_name', 'ajax_removeUxPage');
+    ga.addParam('sysparm_page_record_id', uxPageRecordId);
+    ga.getXMLAnswer(function(successMessage) {
+		g_form.setValue('ux_page', '');
+        g_form.clearMessages();
+        g_form.addInfoMessage(successMessage);
+    });
+
+    return false;
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;catalog_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-01 15:05:10&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;cc52218307c1541037c7f2ae7c1ed0d4&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;Delete Selected UX Page&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;catalog_script_client_cc52218307c1541037c7f2ae7c1ed0d4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-04 12:10:06&lt;/sys_updated_on&gt;&lt;table/&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;variable_set/&gt;&lt;view/&gt;&lt;/catalog_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1649082665</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>17ab1b510792501037c7f2ae7c1ed004</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727f3d0cb40000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Delete Selected UX Page</target_name>
+<type>Catalog Client Scripts</type>
+<update_domain>global</update_domain>
+<update_guid>d657d40cc01d10102644d00757fe6fe6</update_guid>
+<update_guid_history>d657d40cc01d10102644d00757fe6fe6:1649082665,c1860000ff1d1010840d1fa5b03b32f2:-675281295,58d33fdb7e819410f2548a2d303311b2:-199969470,51501edbcd8d54101a21f9e8c5c7485f:-1783637755,52e9e94728c15410c3dd8b2101d159fa:-537929108,4e27a1471bc15410c8f15c7f515fdbee:2006465770,1bf6ed07d4c1541029fa9741311e4108:165857079,efd4a983d9c15410723ba572f022b5d7:487755691,f3b4298345c15410681e56eaefd3f5cd:1752656267,d774e983aac154106e321278fdc3e73a:530345846,65a2258394c15410e4abed7ae5cfd038:-1273512751</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_cf9d01d3e73003009d6247e603f6a990</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_security_acl"&gt;&lt;sys_security_acl action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;admin_overrides&gt;true&lt;/admin_overrides&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;condition/&gt;&lt;description&gt;Default deny for external users.&lt;/description&gt;&lt;name&gt;Scripted REST External Default&lt;/name&gt;&lt;operation display_value="execute"&gt;execute&lt;/operation&gt;&lt;script&gt;&lt;![CDATA[answer = !gs.hasRole("snc_external");]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_security_acl&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-08-30 18:13:35&lt;/sys_created_on&gt;&lt;sys_id&gt;cf9d01d3e73003009d6247e603f6a990&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Scripted REST External Default&lt;/sys_name&gt;&lt;sys_package display_value="Scripted REST APIs" source="com.glide.scripted_rest_services"&gt;76d419d00730101037c7f2ae7c1ed049&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_security_acl_cf9d01d3e73003009d6247e603f6a990&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-09-08 21:52:35&lt;/sys_updated_on&gt;&lt;type display_value="REST_Endpoint"&gt;REST_Endpoint&lt;/type&gt;&lt;/sys_security_acl&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1539961998</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>17ab1b510792501037c7f2ae7c1ed007</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>173964d363e0000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table>Scripted REST External Default</table>
+<target_name>Scripted REST External Default</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid>fc6b9751c99250109e5d1f9ab2c9c674</update_guid>
+<update_guid_history>fc6b9751c99250109e5d1f9ab2c9c674:1539961998,c24644cc3ed91010e32e1d46c778bae5:1539961998</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_application_319e86bd07c1901037c7f2ae7c1ed079</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application"><sys_app_application action="INSERT_OR_UPDATE"><active>true</active><category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category><description/><device_type>browser</device_type><hint/><name>SPA Sys Scripts</name><order>100</order><roles/><sys_class_name>sys_app_application</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-05-28 21:04:45</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>319e86bd07c1901037c7f2ae7c1ed079</sys_id><sys_mod_count>1</sys_mod_count><sys_name>React SPA</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_application_319e86bd07c1901037c7f2ae7c1ed079</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-01 15:37:55</sys_updated_on><title>React SPA</title><view_name/></sys_app_application></record_update>]]></payload>
+<payload_hash>-575124535</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>1bab1b510792501037c7f2ae7c1ed006</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727efc28430000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>React SPA</target_name>
+<type>Application Menu</type>
+<update_domain>global</update_domain>
+<update_guid>c0274800a31d1010083df6719193b834</update_guid>
+<update_guid_history>c0274800a31d1010083df6719193b834:-575124535,512a2dc73bc15410ed89b82bef11010e:-575124535,759e86bde2c190102f0659b99966677b:1453901911</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_cat_item_category_05bce56707c5941037c7f2ae7c1ed0d0</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category"><sc_cat_item_category action="INSERT_OR_UPDATE"><sc_cat_item display_value="Create React App">2cbf637a078d141037c7f2ae7c1ed03d</sc_cat_item><sc_category display_value="Application Management">6c9ca56707c5941037c7f2ae7c1ed009</sc_category><sys_class_name>sc_cat_item_category</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:06:04</sys_created_on><sys_id>05bce56707c5941037c7f2ae7c1ed0d0</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Application Management.Create React App</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sc_cat_item_category_05bce56707c5941037c7f2ae7c1ed0d0</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:06:04</sys_updated_on></sc_cat_item_category></record_update>]]></payload>
+<payload_hash>1656247751</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>1fab1b510792501037c7f2ae7c1ed005</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9c6e80000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Application Management.Create React App</target_name>
+<type>Catalog Item Category</type>
+<update_domain>global</update_domain>
+<update_guid>46864000b01d101038a7fc043a6895a3</update_guid>
+<update_guid_history>46864000b01d101038a7fc043a6895a3:1656247751,01bce5675fc5941069ff8362c28403d9:1656247751</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_ade4208a0749901037c7f2ae7c1ed0b3</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.ReactSPAUtil&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;ReactSPAUtil&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var ReactSPAUtil = Class.create();
+ReactSPAUtil.UX_TABLE_NAMES = {
+    'page': 'sys_ux_page',
+    'registry': 'sys_ux_page_registry',
+    'component': 'sys_ux_lib_component',
+    'element': 'sys_ux_page_element',
+    'script': 'sys_ux_lib_source_script'
+};
+ReactSPAUtil.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+    // for record producer, initializes ux page &amp; return the sys_id of the script record
+    ajax_initializeUxPage: function() {
+
+        var applicationName = this.getParameter('sysparm_application_name');
+
+        if (this._isApplicationNameValid(applicationName) === false) return null;
+		
+        var appNameWithoutSpaces = applicationName.toString().toLowerCase().split(' ').join('-');
+        var appUrlPath = applicationName.toString().toLowerCase().split(' ').join('_');
+		
+		var appUrlBase = this._getAppUrlPath(appUrlPath);
+
+        var uxPageGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.page);
+        uxPageGr.initialize();
+        uxPageGr.title = applicationName;
+        var uxPageRecordId = uxPageGr.insert();
+
+        // generates react app base url
+        var registryRecordId = this._createRecord(ReactSPAUtil.UX_TABLE_NAMES.registry, {
+            title: applicationName,
+            page: uxPageRecordId,
+            path: appUrlPath
+        });
+
+        // actual source code container of the react app
+        var scriptRecordId = this._createRecord(ReactSPAUtil.UX_TABLE_NAMES.script, {
+            name: appNameWithoutSpaces
+        });
+		
+		//inserting boilerplate react code
+		var scriptGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.script);
+		scriptGr.get(scriptRecordId);
+		scriptGr.script = unescape(ReactSPAUtil.REACT_STARTER_BOILERPLATE_STR.replace('script_record_id_placeholder', scriptRecordId).replace('app_url_base_placeholder', appUrlBase));
+		scriptGr.update();
+
+        // create base html tag or root component of react app
+        var componentRecordId = this._createRecord(ReactSPAUtil.UX_TABLE_NAMES.component, {
+            tag: 'root',
+            source_script: scriptRecordId
+        });
+
+        // link the root component to the ux page
+        var elementRecordId = this._createRecord(ReactSPAUtil.UX_TABLE_NAMES.element, {
+            name: appNameWithoutSpaces,
+            page: uxPageRecordId,
+            component: componentRecordId
+        });
+
+        // link the page element with the ux page
+        uxPageGr.root_element = elementRecordId;
+        uxPageGr.update();
+		
+		this._createModuleForApp(applicationName, appUrlBase);
+
+        return JSON.stringify({
+            reactAppLink: appUrlBase
+        });
+    },
+    ajax_removeUxPage: function(pageGr) {
+        var pageRecordId = this.getParameter('sysparm_page_record_id') || pageGr.sys_id;
+        if (!pageGr) {
+            pageGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.page);
+            pageGr.get(pageRecordId);
+        }
+        var successMessage = "'" + pageGr.getValue('title') + "' successfully removed";
+
+        var elementRecordId = pageGr.root_element;
+        var componentRecordId = pageGr.root_element.component;
+        var scriptRecordId = pageGr.root_element.component.source_script;
+		var applicationName = pageGr.getValue('title');
+        var registryGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.registry);
+        registryGr.get('page', pageRecordId);
+        var registryRecordId = registryGr.sys_id;
+		var appFullURL = 'now/'+registryGr.getValue('path');
+
+		this._removeModuleForApp(applicationName, appFullURL);
+        this._deleteRecord(ReactSPAUtil.UX_TABLE_NAMES.page, pageRecordId);
+        this._deleteRecord(ReactSPAUtil.UX_TABLE_NAMES.element, elementRecordId);
+        this._deleteRecord(ReactSPAUtil.UX_TABLE_NAMES.component, componentRecordId);
+        this._deleteRecord(ReactSPAUtil.UX_TABLE_NAMES.script, scriptRecordId);
+        this._deleteRecord(ReactSPAUtil.UX_TABLE_NAMES.registry, registryRecordId);
+
+        return successMessage;
+    },
+    getPageUrlFromScriptRecordId: function(uxScriptRecordId) {
+        var host = gs.getProperty('glide.servlet.uri');
+
+        var componentGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.component);
+        componentGr.get('source_script', uxScriptRecordId);
+        var elementGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.element);
+        elementGr.get('component', componentGr.sys_id);
+        var registryGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.registry);
+        registryGr.get('page', elementGr.page);
+		var appUrlPath = registryGr.getValue('path');
+
+        return (appUrlPath === null ? null : host+this._getAppUrlPath(appUrlPath));
+    },
+	_getAppUrlPath: function(appUrlPath) {
+		var vendorPrefix = null;
+		var appGr = new GlideRecord('sys_app');
+		appGr.addQuery('sys_id', gs.getCurrentApplicationId());
+		appGr.query();
+		if(appGr.next()) {
+			var currentScopeName = appGr.getValue('scope');
+			vendorPrefix = currentScopeName.split('_')[1];
+		}
+		return vendorPrefix === null ? 'now/'+appUrlPath : 'x/'+vendorPrefix +'/'+appUrlPath;
+	},
+    _createModuleForApp: function(applicationName, appFullURL) {
+		var agg = new GlideAggregate(ReactSPAUtil.UX_TABLE_NAMES.page);
+		agg.addAggregate("COUNT");
+		agg.query();
+		var appCount = 0;
+		if (agg.next()) {
+			appCount = agg.getAggregate("COUNT");
+		}
+		
+		var moduleGr = new GlideRecord('sys_app_module');
+		moduleGr.initialize();
+		moduleGr.title = applicationName + ' ➚';
+		moduleGr.application = '319e86bd07c1901037c7f2ae7c1ed079';
+		moduleGr.order = appCount*100 + 200;
+		moduleGr.link_type = 'DIRECT';
+		moduleGr.query = appFullURL;
+		moduleGr.window_name = moduleGr.title;
+		moduleGr.insert();
+	},
+	_removeModuleForApp: function(applicationName, appFullURL) {
+		var moduleGr = new GlideRecord('sys_app_module');
+		moduleGr.addQuery('application', '319e86bd07c1901037c7f2ae7c1ed079');
+		moduleGr.addQuery('title', applicationName + ' ➚').addOrCondition('query', appFullURL);
+		moduleGr.query();
+		if(moduleGr.next()) {
+			moduleGr.deleteRecord();
+		}
+	},
+	_isApplicationNameValid: function(applicationName) {
+        var valid = true;
+        var uxPageGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.page);
+        uxPageGr.addQuery('title', applicationName);
+        uxPageGr.query();
+        if (uxPageGr.next()) {
+            valid = false;
+        }
+        return valid;
+    },
+    // helper method to create records using field data
+    _createRecord: function(table, fieldData) {
+        var fields = Object.keys(fieldData);
+        var gr = new GlideRecord(table);
+        gr.initialize();
+        fields.forEach(function(field) {
+            gr[field] = fieldData[field];
+        });
+        return gr.insert();
+    },
+    // helper method to delete a record
+    _deleteRecord: function(table, sys_id) {
+        var gr = new GlideRecord(table);
+        gr.get(sys_id);
+        gr.deleteRecord();
+    },
+    type: 'ReactSPAUtil'
+});
+ReactSPAUtil.REACT_STARTER_BOILERPLATE_STR = '%28function%28React%2C%20ReactDOM%29%20%7B%20%21function%28e%29%7Bvar%20t%3D%7B%7D%3Bfunction%20n%28r%29%7Bif%28t%5Br%5D%29return%20t%5Br%5D.exports%3Bvar%20o%3Dt%5Br%5D%3D%7Bi%3Ar%2Cl%3A%211%2Cexports%3A%7B%7D%7D%3Breturn%20e%5Br%5D.call%28o.exports%2Co%2Co.exports%2Cn%29%2Co.l%3D%210%2Co.exports%7Dn.m%3De%2Cn.c%3Dt%2Cn.d%3Dfunction%28e%2Ct%2Cr%29%7Bn.o%28e%2Ct%29%7C%7CObject.defineProperty%28e%2Ct%2C%7Benumerable%3A%210%2Cget%3Ar%7D%29%7D%2Cn.r%3Dfunction%28e%29%7B%22undefined%22%21%3Dtypeof%20Symbol%26%26Symbol.toStringTag%26%26Object.defineProperty%28e%2CSymbol.toStringTag%2C%7Bvalue%3A%22Module%22%7D%29%2CObject.defineProperty%28e%2C%22__esModule%22%2C%7Bvalue%3A%210%7D%29%7D%2Cn.t%3Dfunction%28e%2Ct%29%7Bif%281%26t%26%26%28e%3Dn%28e%29%29%2C8%26t%29return%20e%3Bif%284%26t%26%26%22object%22%3D%3Dtypeof%20e%26%26e%26%26e.__esModule%29return%20e%3Bvar%20r%3DObject.create%28null%29%3Bif%28n.r%28r%29%2CObject.defineProperty%28r%2C%22default%22%2C%7Benumerable%3A%210%2Cvalue%3Ae%7D%29%2C2%26t%26%26%22string%22%21%3Dtypeof%20e%29for%28var%20o%20in%20e%29n.d%28r%2Co%2Cfunction%28t%29%7Breturn%20e%5Bt%5D%7D.bind%28null%2Co%29%29%3Breturn%20r%7D%2Cn.n%3Dfunction%28e%29%7Bvar%20t%3De%26%26e.__esModule%3Ffunction%28%29%7Breturn%20e.default%7D%3Afunction%28%29%7Breturn%20e%7D%3Breturn%20n.d%28t%2C%22a%22%2Ct%29%2Ct%7D%2Cn.o%3Dfunction%28e%2Ct%29%7Breturn%20Object.prototype.hasOwnProperty.call%28e%2Ct%29%7D%2Cn.p%3D%22%22%2Cn%28n.s%3D38%29%7D%28%5Bfunction%28e%2Ct%29%7Be.exports%3DReact%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bfunction%20r%28e%29%7Breturn%28r%3D%22function%22%3D%3Dtypeof%20Symbol%26%26%22symbol%22%3D%3Dtypeof%20Symbol.iterator%3Ffunction%28e%29%7Breturn%20typeof%20e%7D%3Afunction%28e%29%7Breturn%20e%26%26%22function%22%3D%3Dtypeof%20Symbol%26%26e.constructor%3D%3D%3DSymbol%26%26e%21%3D%3DSymbol.prototype%3F%22symbol%22%3Atypeof%20e%7D%29%28e%29%7Dvar%20o%3Dn%282%29%2Ci%3DObject.prototype.toString%3Bfunction%20a%28e%29%7Breturn%22%5Bobject%20Array%5D%22%3D%3D%3Di.call%28e%29%7Dfunction%20s%28e%29%7Breturn%20void%200%3D%3D%3De%7Dfunction%20c%28e%29%7Breturn%20null%21%3D%3De%26%26%22object%22%3D%3D%3Dr%28e%29%7Dfunction%20u%28e%29%7Breturn%22%5Bobject%20Function%5D%22%3D%3D%3Di.call%28e%29%7Dfunction%20f%28e%2Ct%29%7Bif%28null%21%3De%29if%28%22object%22%21%3D%3Dr%28e%29%26%26%28e%3D%5Be%5D%29%2Ca%28e%29%29for%28var%20n%3D0%2Co%3De.length%3Bn%3Co%3Bn++%29t.call%28null%2Ce%5Bn%5D%2Cn%2Ce%29%3Belse%20for%28var%20i%20in%20e%29Object.prototype.hasOwnProperty.call%28e%2Ci%29%26%26t.call%28null%2Ce%5Bi%5D%2Ci%2Ce%29%7De.exports%3D%7BisArray%3Aa%2CisArrayBuffer%3Afunction%28e%29%7Breturn%22%5Bobject%20ArrayBuffer%5D%22%3D%3D%3Di.call%28e%29%7D%2CisBuffer%3Afunction%28e%29%7Breturn%20null%21%3D%3De%26%26%21s%28e%29%26%26null%21%3D%3De.constructor%26%26%21s%28e.constructor%29%26%26%22function%22%3D%3Dtypeof%20e.constructor.isBuffer%26%26e.constructor.isBuffer%28e%29%7D%2CisFormData%3Afunction%28e%29%7Breturn%22undefined%22%21%3Dtypeof%20FormData%26%26e%20instanceof%20FormData%7D%2CisArrayBufferView%3Afunction%28e%29%7Breturn%22undefined%22%21%3Dtypeof%20ArrayBuffer%26%26ArrayBuffer.isView%3FArrayBuffer.isView%28e%29%3Ae%26%26e.buffer%26%26e.buffer%20instanceof%20ArrayBuffer%7D%2CisString%3Afunction%28e%29%7Breturn%22string%22%3D%3Dtypeof%20e%7D%2CisNumber%3Afunction%28e%29%7Breturn%22number%22%3D%3Dtypeof%20e%7D%2CisObject%3Ac%2CisUndefined%3As%2CisDate%3Afunction%28e%29%7Breturn%22%5Bobject%20Date%5D%22%3D%3D%3Di.call%28e%29%7D%2CisFile%3Afunction%28e%29%7Breturn%22%5Bobject%20File%5D%22%3D%3D%3Di.call%28e%29%7D%2CisBlob%3Afunction%28e%29%7Breturn%22%5Bobject%20Blob%5D%22%3D%3D%3Di.call%28e%29%7D%2CisFunction%3Au%2CisStream%3Afunction%28e%29%7Breturn%20c%28e%29%26%26u%28e.pipe%29%7D%2CisURLSearchParams%3Afunction%28e%29%7Breturn%22undefined%22%21%3Dtypeof%20URLSearchParams%26%26e%20instanceof%20URLSearchParams%7D%2CisStandardBrowserEnv%3Afunction%28%29%7Breturn%28%22undefined%22%3D%3Dtypeof%20navigator%7C%7C%22ReactNative%22%21%3D%3Dnavigator.product%26%26%22NativeScript%22%21%3D%3Dnavigator.product%26%26%22NS%22%21%3D%3Dnavigator.product%29%26%26%28%22undefined%22%21%3Dtypeof%20window%26%26%22undefined%22%21%3Dtypeof%20document%29%7D%2CforEach%3Af%2Cmerge%3Afunction%20e%28%29%7Bvar%20t%3D%7B%7D%3Bfunction%20n%28n%2Co%29%7B%22object%22%3D%3D%3Dr%28t%5Bo%5D%29%26%26%22object%22%3D%3D%3Dr%28n%29%3Ft%5Bo%5D%3De%28t%5Bo%5D%2Cn%29%3At%5Bo%5D%3Dn%7Dfor%28var%20o%3D0%2Ci%3Darguments.length%3Bo%3Ci%3Bo++%29f%28arguments%5Bo%5D%2Cn%29%3Breturn%20t%7D%2CdeepMerge%3Afunction%20e%28%29%7Bvar%20t%3D%7B%7D%3Bfunction%20n%28n%2Co%29%7B%22object%22%3D%3D%3Dr%28t%5Bo%5D%29%26%26%22object%22%3D%3D%3Dr%28n%29%3Ft%5Bo%5D%3De%28t%5Bo%5D%2Cn%29%3A%22object%22%3D%3D%3Dr%28n%29%3Ft%5Bo%5D%3De%28%7B%7D%2Cn%29%3At%5Bo%5D%3Dn%7Dfor%28var%20o%3D0%2Ci%3Darguments.length%3Bo%3Ci%3Bo++%29f%28arguments%5Bo%5D%2Cn%29%3Breturn%20t%7D%2Cextend%3Afunction%28e%2Ct%2Cn%29%7Breturn%20f%28t%2C%28function%28t%2Cr%29%7Be%5Br%5D%3Dn%26%26%22function%22%3D%3Dtypeof%20t%3Fo%28t%2Cn%29%3At%7D%29%29%2Ce%7D%2Ctrim%3Afunction%28e%29%7Breturn%20e.replace%28/%5E%5Cs*/%2C%22%22%29.replace%28/%5Cs*%24/%2C%22%22%29%7D%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%2Ct%29%7Breturn%20function%28%29%7Bfor%28var%20n%3Dnew%20Array%28arguments.length%29%2Cr%3D0%3Br%3Cn.length%3Br++%29n%5Br%5D%3Darguments%5Br%5D%3Breturn%20e.apply%28t%2Cn%29%7D%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%3Bfunction%20o%28e%29%7Breturn%20encodeURIComponent%28e%29.replace%28/%2540/gi%2C%22@%22%29.replace%28/%253A/gi%2C%22%3A%22%29.replace%28/%2524/g%2C%22%24%22%29.replace%28/%252C/gi%2C%22%2C%22%29.replace%28/%2520/g%2C%22+%22%29.replace%28/%255B/gi%2C%22%5B%22%29.replace%28/%255D/gi%2C%22%5D%22%29%7De.exports%3Dfunction%28e%2Ct%2Cn%29%7Bif%28%21t%29return%20e%3Bvar%20i%3Bif%28n%29i%3Dn%28t%29%3Belse%20if%28r.isURLSearchParams%28t%29%29i%3Dt.toString%28%29%3Belse%7Bvar%20a%3D%5B%5D%3Br.forEach%28t%2C%28function%28e%2Ct%29%7Bnull%21%3De%26%26%28r.isArray%28e%29%3Ft+%3D%22%5B%5D%22%3Ae%3D%5Be%5D%2Cr.forEach%28e%2C%28function%28e%29%7Br.isDate%28e%29%3Fe%3De.toISOString%28%29%3Ar.isObject%28e%29%26%26%28e%3DJSON.stringify%28e%29%29%2Ca.push%28o%28t%29+%22%3D%22+o%28e%29%29%7D%29%29%29%7D%29%29%2Ci%3Da.join%28%22%26%22%29%7Dif%28i%29%7Bvar%20s%3De.indexOf%28%22%23%22%29%3B-1%21%3D%3Ds%26%26%28e%3De.slice%280%2Cs%29%29%2Ce+%3D%28-1%3D%3D%3De.indexOf%28%22%3F%22%29%3F%22%3F%22%3A%22%26%22%29+i%7Dreturn%20e%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%29%7Breturn%21%28%21e%7C%7C%21e.__CANCEL__%29%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3B%28function%28t%29%7Bvar%20r%3Dn%281%29%2Co%3Dn%2820%29%2Ci%3D%7B%22Content-Type%22%3A%22application/x-www-form-urlencoded%22%7D%3Bfunction%20a%28e%2Ct%29%7B%21r.isUndefined%28e%29%26%26r.isUndefined%28e%5B%22Content-Type%22%5D%29%26%26%28e%5B%22Content-Type%22%5D%3Dt%29%7Dvar%20s%2Cc%3D%7Badapter%3A%28%28%22undefined%22%21%3Dtypeof%20XMLHttpRequest%7C%7Cvoid%200%21%3D%3Dt%26%26%22%5Bobject%20process%5D%22%3D%3D%3DObject.prototype.toString.call%28t%29%29%26%26%28s%3Dn%286%29%29%2Cs%29%2CtransformRequest%3A%5Bfunction%28e%2Ct%29%7Breturn%20o%28t%2C%22Accept%22%29%2Co%28t%2C%22Content-Type%22%29%2Cr.isFormData%28e%29%7C%7Cr.isArrayBuffer%28e%29%7C%7Cr.isBuffer%28e%29%7C%7Cr.isStream%28e%29%7C%7Cr.isFile%28e%29%7C%7Cr.isBlob%28e%29%3Fe%3Ar.isArrayBufferView%28e%29%3Fe.buffer%3Ar.isURLSearchParams%28e%29%3F%28a%28t%2C%22application/x-www-form-urlencoded%3Bcharset%3Dutf-8%22%29%2Ce.toString%28%29%29%3Ar.isObject%28e%29%3F%28a%28t%2C%22application/json%3Bcharset%3Dutf-8%22%29%2CJSON.stringify%28e%29%29%3Ae%7D%5D%2CtransformResponse%3A%5Bfunction%28e%29%7Bif%28%22string%22%3D%3Dtypeof%20e%29try%7Be%3DJSON.parse%28e%29%7Dcatch%28e%29%7B%7Dreturn%20e%7D%5D%2Ctimeout%3A0%2CxsrfCookieName%3A%22XSRF-TOKEN%22%2CxsrfHeaderName%3A%22X-XSRF-TOKEN%22%2CmaxContentLength%3A-1%2CvalidateStatus%3Afunction%28e%29%7Breturn%20e%3E%3D200%26%26e%3C300%7D%7D%3Bc.headers%3D%7Bcommon%3A%7BAccept%3A%22application/json%2C%20text/plain%2C%20*/*%22%7D%7D%2Cr.forEach%28%5B%22delete%22%2C%22get%22%2C%22head%22%5D%2C%28function%28e%29%7Bc.headers%5Be%5D%3D%7B%7D%7D%29%29%2Cr.forEach%28%5B%22post%22%2C%22put%22%2C%22patch%22%5D%2C%28function%28e%29%7Bc.headers%5Be%5D%3Dr.merge%28i%29%7D%29%29%2Ce.exports%3Dc%7D%29.call%28this%2Cn%2819%29%29%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%2Co%3Dn%2821%29%2Ci%3Dn%283%29%2Ca%3Dn%2823%29%2Cs%3Dn%2826%29%2Cc%3Dn%2827%29%2Cu%3Dn%287%29%3Be.exports%3Dfunction%28e%29%7Breturn%20new%20Promise%28%28function%28t%2Cf%29%7Bvar%20l%3De.data%2Cp%3De.headers%3Br.isFormData%28l%29%26%26delete%20p%5B%22Content-Type%22%5D%3Bvar%20d%3Dnew%20XMLHttpRequest%3Bif%28e.auth%29%7Bvar%20h%3De.auth.username%7C%7C%22%22%2Cm%3De.auth.password%7C%7C%22%22%3Bp.Authorization%3D%22Basic%20%22+btoa%28h+%22%3A%22+m%29%7Dvar%20v%3Da%28e.baseURL%2Ce.url%29%3Bif%28d.open%28e.method.toUpperCase%28%29%2Ci%28v%2Ce.params%2Ce.paramsSerializer%29%2C%210%29%2Cd.timeout%3De.timeout%2Cd.onreadystatechange%3Dfunction%28%29%7Bif%28d%26%264%3D%3D%3Dd.readyState%26%26%280%21%3D%3Dd.status%7C%7Cd.responseURL%26%260%3D%3D%3Dd.responseURL.indexOf%28%22file%3A%22%29%29%29%7Bvar%20n%3D%22getAllResponseHeaders%22in%20d%3Fs%28d.getAllResponseHeaders%28%29%29%3Anull%2Cr%3D%7Bdata%3Ae.responseType%26%26%22text%22%21%3D%3De.responseType%3Fd.response%3Ad.responseText%2Cstatus%3Ad.status%2CstatusText%3Ad.statusText%2Cheaders%3An%2Cconfig%3Ae%2Crequest%3Ad%7D%3Bo%28t%2Cf%2Cr%29%2Cd%3Dnull%7D%7D%2Cd.onabort%3Dfunction%28%29%7Bd%26%26%28f%28u%28%22Request%20aborted%22%2Ce%2C%22ECONNABORTED%22%2Cd%29%29%2Cd%3Dnull%29%7D%2Cd.onerror%3Dfunction%28%29%7Bf%28u%28%22Network%20Error%22%2Ce%2Cnull%2Cd%29%29%2Cd%3Dnull%7D%2Cd.ontimeout%3Dfunction%28%29%7Bvar%20t%3D%22timeout%20of%20%22+e.timeout+%22ms%20exceeded%22%3Be.timeoutErrorMessage%26%26%28t%3De.timeoutErrorMessage%29%2Cf%28u%28t%2Ce%2C%22ECONNABORTED%22%2Cd%29%29%2Cd%3Dnull%7D%2Cr.isStandardBrowserEnv%28%29%29%7Bvar%20g%3Dn%2828%29%2Cy%3D%28e.withCredentials%7C%7Cc%28v%29%29%26%26e.xsrfCookieName%3Fg.read%28e.xsrfCookieName%29%3Avoid%200%3By%26%26%28p%5Be.xsrfHeaderName%5D%3Dy%29%7Dif%28%22setRequestHeader%22in%20d%26%26r.forEach%28p%2C%28function%28e%2Ct%29%7Bvoid%200%3D%3D%3Dl%26%26%22content-type%22%3D%3D%3Dt.toLowerCase%28%29%3Fdelete%20p%5Bt%5D%3Ad.setRequestHeader%28t%2Ce%29%7D%29%29%2Cr.isUndefined%28e.withCredentials%29%7C%7C%28d.withCredentials%3D%21%21e.withCredentials%29%2Ce.responseType%29try%7Bd.responseType%3De.responseType%7Dcatch%28t%29%7Bif%28%22json%22%21%3D%3De.responseType%29throw%20t%7D%22function%22%3D%3Dtypeof%20e.onDownloadProgress%26%26d.addEventListener%28%22progress%22%2Ce.onDownloadProgress%29%2C%22function%22%3D%3Dtypeof%20e.onUploadProgress%26%26d.upload%26%26d.upload.addEventListener%28%22progress%22%2Ce.onUploadProgress%29%2Ce.cancelToken%26%26e.cancelToken.promise.then%28%28function%28e%29%7Bd%26%26%28d.abort%28%29%2Cf%28e%29%2Cd%3Dnull%29%7D%29%29%2Cvoid%200%3D%3D%3Dl%26%26%28l%3Dnull%29%2Cd.send%28l%29%7D%29%29%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%2822%29%3Be.exports%3Dfunction%28e%2Ct%2Cn%2Co%2Ci%29%7Bvar%20a%3Dnew%20Error%28e%29%3Breturn%20r%28a%2Ct%2Cn%2Co%2Ci%29%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%3Be.exports%3Dfunction%28e%2Ct%29%7Bt%3Dt%7C%7C%7B%7D%3Bvar%20n%3D%7B%7D%2Co%3D%5B%22url%22%2C%22method%22%2C%22params%22%2C%22data%22%5D%2Ci%3D%5B%22headers%22%2C%22auth%22%2C%22proxy%22%5D%2Ca%3D%5B%22baseURL%22%2C%22url%22%2C%22transformRequest%22%2C%22transformResponse%22%2C%22paramsSerializer%22%2C%22timeout%22%2C%22withCredentials%22%2C%22adapter%22%2C%22responseType%22%2C%22xsrfCookieName%22%2C%22xsrfHeaderName%22%2C%22onUploadProgress%22%2C%22onDownloadProgress%22%2C%22maxContentLength%22%2C%22validateStatus%22%2C%22maxRedirects%22%2C%22httpAgent%22%2C%22httpsAgent%22%2C%22cancelToken%22%2C%22socketPath%22%5D%3Br.forEach%28o%2C%28function%28e%29%7Bvoid%200%21%3D%3Dt%5Be%5D%26%26%28n%5Be%5D%3Dt%5Be%5D%29%7D%29%29%2Cr.forEach%28i%2C%28function%28o%29%7Br.isObject%28t%5Bo%5D%29%3Fn%5Bo%5D%3Dr.deepMerge%28e%5Bo%5D%2Ct%5Bo%5D%29%3Avoid%200%21%3D%3Dt%5Bo%5D%3Fn%5Bo%5D%3Dt%5Bo%5D%3Ar.isObject%28e%5Bo%5D%29%3Fn%5Bo%5D%3Dr.deepMerge%28e%5Bo%5D%29%3Avoid%200%21%3D%3De%5Bo%5D%26%26%28n%5Bo%5D%3De%5Bo%5D%29%7D%29%29%2Cr.forEach%28a%2C%28function%28r%29%7Bvoid%200%21%3D%3Dt%5Br%5D%3Fn%5Br%5D%3Dt%5Br%5D%3Avoid%200%21%3D%3De%5Br%5D%26%26%28n%5Br%5D%3De%5Br%5D%29%7D%29%29%3Bvar%20s%3Do.concat%28i%29.concat%28a%29%2Cc%3DObject.keys%28t%29.filter%28%28function%28e%29%7Breturn-1%3D%3D%3Ds.indexOf%28e%29%7D%29%29%3Breturn%20r.forEach%28c%2C%28function%28r%29%7Bvoid%200%21%3D%3Dt%5Br%5D%3Fn%5Br%5D%3Dt%5Br%5D%3Avoid%200%21%3D%3De%5Br%5D%26%26%28n%5Br%5D%3De%5Br%5D%29%7D%29%29%2Cn%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bfunction%20r%28e%29%7Bthis.message%3De%7Dr.prototype.toString%3Dfunction%28%29%7Breturn%22Cancel%22+%28this.message%3F%22%3A%20%22+this.message%3A%22%22%29%7D%2Cr.prototype.__CANCEL__%3D%210%2Ce.exports%3Dr%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%2Co%3Dfunction%28%29%7Breturn%20void%200%3D%3D%3Dr%26%26%28r%3DBoolean%28window%26%26document%26%26document.all%26%26%21window.atob%29%29%2Cr%7D%2Ci%3Dfunction%28%29%7Bvar%20e%3D%7B%7D%3Breturn%20function%28t%29%7Bif%28void%200%3D%3D%3De%5Bt%5D%29%7Bvar%20n%3Ddocument.querySelector%28t%29%3Bif%28window.HTMLIFrameElement%26%26n%20instanceof%20window.HTMLIFrameElement%29try%7Bn%3Dn.contentDocument.head%7Dcatch%28e%29%7Bn%3Dnull%7De%5Bt%5D%3Dn%7Dreturn%20e%5Bt%5D%7D%7D%28%29%2Ca%3D%5B%5D%3Bfunction%20s%28e%29%7Bfor%28var%20t%3D-1%2Cn%3D0%3Bn%3Ca.length%3Bn++%29if%28a%5Bn%5D.identifier%3D%3D%3De%29%7Bt%3Dn%3Bbreak%7Dreturn%20t%7Dfunction%20c%28e%2Ct%29%7Bfor%28var%20n%3D%7B%7D%2Cr%3D%5B%5D%2Co%3D0%3Bo%3Ce.length%3Bo++%29%7Bvar%20i%3De%5Bo%5D%2Cc%3Dt.base%3Fi%5B0%5D+t.base%3Ai%5B0%5D%2Cu%3Dn%5Bc%5D%7C%7C0%2Cf%3D%22%22.concat%28c%2C%22%20%22%29.concat%28u%29%3Bn%5Bc%5D%3Du+1%3Bvar%20l%3Ds%28f%29%2Cp%3D%7Bcss%3Ai%5B1%5D%2Cmedia%3Ai%5B2%5D%2CsourceMap%3Ai%5B3%5D%7D%3B-1%21%3D%3Dl%3F%28a%5Bl%5D.references++%2Ca%5Bl%5D.updater%28p%29%29%3Aa.push%28%7Bidentifier%3Af%2Cupdater%3Av%28p%2Ct%29%2Creferences%3A1%7D%29%2Cr.push%28f%29%7Dreturn%20r%7Dfunction%20u%28e%29%7Bvar%20t%3Ddocument.createElement%28%22style%22%29%2Cr%3De.attributes%7C%7C%7B%7D%3Bif%28void%200%3D%3D%3Dr.nonce%29%7Bvar%20o%3Dn.nc%3Bo%26%26%28r.nonce%3Do%29%7Dif%28Object.keys%28r%29.forEach%28%28function%28e%29%7Bt.setAttribute%28e%2Cr%5Be%5D%29%7D%29%29%2C%22function%22%3D%3Dtypeof%20e.insert%29e.insert%28t%29%3Belse%7Bvar%20a%3Di%28e.insert%7C%7C%22head%22%29%3Bif%28%21a%29throw%20new%20Error%28%22Couldn%27t%20find%20a%20style%20target.%20This%20probably%20means%20that%20the%20value%20for%20the%20%27insert%27%20parameter%20is%20invalid.%22%29%3Ba.appendChild%28t%29%7Dreturn%20t%7Dvar%20f%2Cl%3D%28f%3D%5B%5D%2Cfunction%28e%2Ct%29%7Breturn%20f%5Be%5D%3Dt%2Cf.filter%28Boolean%29.join%28%22%5Cn%22%29%7D%29%3Bfunction%20p%28e%2Ct%2Cn%2Cr%29%7Bvar%20o%3Dn%3F%22%22%3Ar.media%3F%22@media%20%22.concat%28r.media%2C%22%20%7B%22%29.concat%28r.css%2C%22%7D%22%29%3Ar.css%3Bif%28e.styleSheet%29e.styleSheet.cssText%3Dl%28t%2Co%29%3Belse%7Bvar%20i%3Ddocument.createTextNode%28o%29%2Ca%3De.childNodes%3Ba%5Bt%5D%26%26e.removeChild%28a%5Bt%5D%29%2Ca.length%3Fe.insertBefore%28i%2Ca%5Bt%5D%29%3Ae.appendChild%28i%29%7D%7Dfunction%20d%28e%2Ct%2Cn%29%7Bvar%20r%3Dn.css%2Co%3Dn.media%2Ci%3Dn.sourceMap%3Bif%28o%3Fe.setAttribute%28%22media%22%2Co%29%3Ae.removeAttribute%28%22media%22%29%2Ci%26%26btoa%26%26%28r+%3D%22%5Cn/*%23%20sourceMappingURL%3Ddata%3Aapplication/json%3Bbase64%2C%22.concat%28btoa%28unescape%28encodeURIComponent%28JSON.stringify%28i%29%29%29%29%2C%22%20*/%22%29%29%2Ce.styleSheet%29e.styleSheet.cssText%3Dr%3Belse%7Bfor%28%3Be.firstChild%3B%29e.removeChild%28e.firstChild%29%3Be.appendChild%28document.createTextNode%28r%29%29%7D%7Dvar%20h%3Dnull%2Cm%3D0%3Bfunction%20v%28e%2Ct%29%7Bvar%20n%2Cr%2Co%3Bif%28t.singleton%29%7Bvar%20i%3Dm++%3Bn%3Dh%7C%7C%28h%3Du%28t%29%29%2Cr%3Dp.bind%28null%2Cn%2Ci%2C%211%29%2Co%3Dp.bind%28null%2Cn%2Ci%2C%210%29%7Delse%20n%3Du%28t%29%2Cr%3Dd.bind%28null%2Cn%2Ct%29%2Co%3Dfunction%28%29%7B%21function%28e%29%7Bif%28null%3D%3D%3De.parentNode%29return%211%3Be.parentNode.removeChild%28e%29%7D%28n%29%7D%3Breturn%20r%28e%29%2Cfunction%28t%29%7Bif%28t%29%7Bif%28t.css%3D%3D%3De.css%26%26t.media%3D%3D%3De.media%26%26t.sourceMap%3D%3D%3De.sourceMap%29return%3Br%28e%3Dt%29%7Delse%20o%28%29%7D%7De.exports%3Dfunction%28e%2Ct%29%7B%28t%3Dt%7C%7C%7B%7D%29.singleton%7C%7C%22boolean%22%3D%3Dtypeof%20t.singleton%7C%7C%28t.singleton%3Do%28%29%29%3Bvar%20n%3Dc%28e%3De%7C%7C%5B%5D%2Ct%29%3Breturn%20function%28e%29%7Bif%28e%3De%7C%7C%5B%5D%2C%22%5Bobject%20Array%5D%22%3D%3D%3DObject.prototype.toString.call%28e%29%29%7Bfor%28var%20r%3D0%3Br%3Cn.length%3Br++%29%7Bvar%20o%3Ds%28n%5Br%5D%29%3Ba%5Bo%5D.references--%7Dfor%28var%20i%3Dc%28e%2Ct%29%2Cu%3D0%3Bu%3Cn.length%3Bu++%29%7Bvar%20f%3Ds%28n%5Bu%5D%29%3B0%3D%3D%3Da%5Bf%5D.references%26%26%28a%5Bf%5D.updater%28%29%2Ca.splice%28f%2C1%29%29%7Dn%3Di%7D%7D%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%29%7Bvar%20t%3D%5B%5D%3Breturn%20t.toString%3Dfunction%28%29%7Breturn%20this.map%28%28function%28t%29%7Bvar%20n%3Dfunction%28e%2Ct%29%7Bvar%20n%3De%5B1%5D%7C%7C%22%22%2Cr%3De%5B3%5D%3Bif%28%21r%29return%20n%3Bif%28t%26%26%22function%22%3D%3Dtypeof%20btoa%29%7Bvar%20o%3D%28a%3Dr%2Cs%3Dbtoa%28unescape%28encodeURIComponent%28JSON.stringify%28a%29%29%29%29%2Cc%3D%22sourceMappingURL%3Ddata%3Aapplication/json%3Bcharset%3Dutf-8%3Bbase64%2C%22.concat%28s%29%2C%22/*%23%20%22.concat%28c%2C%22%20*/%22%29%29%2Ci%3Dr.sources.map%28%28function%28e%29%7Breturn%22/*%23%20sourceURL%3D%22.concat%28r.sourceRoot%7C%7C%22%22%29.concat%28e%2C%22%20*/%22%29%7D%29%29%3Breturn%5Bn%5D.concat%28i%29.concat%28%5Bo%5D%29.join%28%22%5Cn%22%29%7Dvar%20a%2Cs%2Cc%3Breturn%5Bn%5D.join%28%22%5Cn%22%29%7D%28t%2Ce%29%3Breturn%20t%5B2%5D%3F%22@media%20%22.concat%28t%5B2%5D%2C%22%20%7B%22%29.concat%28n%2C%22%7D%22%29%3An%7D%29%29.join%28%22%22%29%7D%2Ct.i%3Dfunction%28e%2Cn%2Cr%29%7B%22string%22%3D%3Dtypeof%20e%26%26%28e%3D%5B%5Bnull%2Ce%2C%22%22%5D%5D%29%3Bvar%20o%3D%7B%7D%3Bif%28r%29for%28var%20i%3D0%3Bi%3Cthis.length%3Bi++%29%7Bvar%20a%3Dthis%5Bi%5D%5B0%5D%3Bnull%21%3Da%26%26%28o%5Ba%5D%3D%210%29%7Dfor%28var%20s%3D0%3Bs%3Ce.length%3Bs++%29%7Bvar%20c%3D%5B%5D.concat%28e%5Bs%5D%29%3Br%26%26o%5Bc%5B0%5D%5D%7C%7C%28n%26%26%28c%5B2%5D%3Fc%5B2%5D%3D%22%22.concat%28n%2C%22%20and%20%22%29.concat%28c%5B2%5D%29%3Ac%5B2%5D%3Dn%29%2Ct.push%28c%29%29%7D%7D%2Ct%7D%7D%2Cfunction%28e%2Ct%29%7Be.exports%3DReactDOM%7D%2Cfunction%28e%2Ct%2Cn%29%7Be.exports%3Dn%2814%29%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%2Co%3Dn%282%29%2Ci%3Dn%2815%29%2Ca%3Dn%288%29%3Bfunction%20s%28e%29%7Bvar%20t%3Dnew%20i%28e%29%2Cn%3Do%28i.prototype.request%2Ct%29%3Breturn%20r.extend%28n%2Ci.prototype%2Ct%29%2Cr.extend%28n%2Ct%29%2Cn%7Dvar%20c%3Ds%28n%285%29%29%3Bc.Axios%3Di%2Cc.create%3Dfunction%28e%29%7Breturn%20s%28a%28c.defaults%2Ce%29%29%7D%2Cc.Cancel%3Dn%289%29%2Cc.CancelToken%3Dn%2829%29%2Cc.isCancel%3Dn%284%29%2Cc.all%3Dfunction%28e%29%7Breturn%20Promise.all%28e%29%7D%2Cc.spread%3Dn%2830%29%2Ce.exports%3Dc%2Ce.exports.default%3Dc%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%2Co%3Dn%283%29%2Ci%3Dn%2816%29%2Ca%3Dn%2817%29%2Cs%3Dn%288%29%3Bfunction%20c%28e%29%7Bthis.defaults%3De%2Cthis.interceptors%3D%7Brequest%3Anew%20i%2Cresponse%3Anew%20i%7D%7Dc.prototype.request%3Dfunction%28e%29%7B%22string%22%3D%3Dtypeof%20e%3F%28e%3Darguments%5B1%5D%7C%7C%7B%7D%29.url%3Darguments%5B0%5D%3Ae%3De%7C%7C%7B%7D%2C%28e%3Ds%28this.defaults%2Ce%29%29.method%3Fe.method%3De.method.toLowerCase%28%29%3Athis.defaults.method%3Fe.method%3Dthis.defaults.method.toLowerCase%28%29%3Ae.method%3D%22get%22%3Bvar%20t%3D%5Ba%2Cvoid%200%5D%2Cn%3DPromise.resolve%28e%29%3Bfor%28this.interceptors.request.forEach%28%28function%28e%29%7Bt.unshift%28e.fulfilled%2Ce.rejected%29%7D%29%29%2Cthis.interceptors.response.forEach%28%28function%28e%29%7Bt.push%28e.fulfilled%2Ce.rejected%29%7D%29%29%3Bt.length%3B%29n%3Dn.then%28t.shift%28%29%2Ct.shift%28%29%29%3Breturn%20n%7D%2Cc.prototype.getUri%3Dfunction%28e%29%7Breturn%20e%3Ds%28this.defaults%2Ce%29%2Co%28e.url%2Ce.params%2Ce.paramsSerializer%29.replace%28/%5E%5C%3F/%2C%22%22%29%7D%2Cr.forEach%28%5B%22delete%22%2C%22get%22%2C%22head%22%2C%22options%22%5D%2C%28function%28e%29%7Bc.prototype%5Be%5D%3Dfunction%28t%2Cn%29%7Breturn%20this.request%28r.merge%28n%7C%7C%7B%7D%2C%7Bmethod%3Ae%2Curl%3At%7D%29%29%7D%7D%29%29%2Cr.forEach%28%5B%22post%22%2C%22put%22%2C%22patch%22%5D%2C%28function%28e%29%7Bc.prototype%5Be%5D%3Dfunction%28t%2Cn%2Co%29%7Breturn%20this.request%28r.merge%28o%7C%7C%7B%7D%2C%7Bmethod%3Ae%2Curl%3At%2Cdata%3An%7D%29%29%7D%7D%29%29%2Ce.exports%3Dc%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%3Bfunction%20o%28%29%7Bthis.handlers%3D%5B%5D%7Do.prototype.use%3Dfunction%28e%2Ct%29%7Breturn%20this.handlers.push%28%7Bfulfilled%3Ae%2Crejected%3At%7D%29%2Cthis.handlers.length-1%7D%2Co.prototype.eject%3Dfunction%28e%29%7Bthis.handlers%5Be%5D%26%26%28this.handlers%5Be%5D%3Dnull%29%7D%2Co.prototype.forEach%3Dfunction%28e%29%7Br.forEach%28this.handlers%2C%28function%28t%29%7Bnull%21%3D%3Dt%26%26e%28t%29%7D%29%29%7D%2Ce.exports%3Do%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%2Co%3Dn%2818%29%2Ci%3Dn%284%29%2Ca%3Dn%285%29%3Bfunction%20s%28e%29%7Be.cancelToken%26%26e.cancelToken.throwIfRequested%28%29%7De.exports%3Dfunction%28e%29%7Breturn%20s%28e%29%2Ce.headers%3De.headers%7C%7C%7B%7D%2Ce.data%3Do%28e.data%2Ce.headers%2Ce.transformRequest%29%2Ce.headers%3Dr.merge%28e.headers.common%7C%7C%7B%7D%2Ce.headers%5Be.method%5D%7C%7C%7B%7D%2Ce.headers%29%2Cr.forEach%28%5B%22delete%22%2C%22get%22%2C%22head%22%2C%22post%22%2C%22put%22%2C%22patch%22%2C%22common%22%5D%2C%28function%28t%29%7Bdelete%20e.headers%5Bt%5D%7D%29%29%2C%28e.adapter%7C%7Ca.adapter%29%28e%29.then%28%28function%28t%29%7Breturn%20s%28e%29%2Ct.data%3Do%28t.data%2Ct.headers%2Ce.transformResponse%29%2Ct%7D%29%2C%28function%28t%29%7Breturn%20i%28t%29%7C%7C%28s%28e%29%2Ct%26%26t.response%26%26%28t.response.data%3Do%28t.response.data%2Ct.response.headers%2Ce.transformResponse%29%29%29%2CPromise.reject%28t%29%7D%29%29%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%3Be.exports%3Dfunction%28e%2Ct%2Cn%29%7Breturn%20r.forEach%28n%2C%28function%28n%29%7Be%3Dn%28e%2Ct%29%7D%29%29%2Ce%7D%7D%2Cfunction%28e%2Ct%29%7Bvar%20n%2Cr%2Co%3De.exports%3D%7B%7D%3Bfunction%20i%28%29%7Bthrow%20new%20Error%28%22setTimeout%20has%20not%20been%20defined%22%29%7Dfunction%20a%28%29%7Bthrow%20new%20Error%28%22clearTimeout%20has%20not%20been%20defined%22%29%7Dfunction%20s%28e%29%7Bif%28n%3D%3D%3DsetTimeout%29return%20setTimeout%28e%2C0%29%3Bif%28%28n%3D%3D%3Di%7C%7C%21n%29%26%26setTimeout%29return%20n%3DsetTimeout%2CsetTimeout%28e%2C0%29%3Btry%7Breturn%20n%28e%2C0%29%7Dcatch%28t%29%7Btry%7Breturn%20n.call%28null%2Ce%2C0%29%7Dcatch%28t%29%7Breturn%20n.call%28this%2Ce%2C0%29%7D%7D%7D%21function%28%29%7Btry%7Bn%3D%22function%22%3D%3Dtypeof%20setTimeout%3FsetTimeout%3Ai%7Dcatch%28e%29%7Bn%3Di%7Dtry%7Br%3D%22function%22%3D%3Dtypeof%20clearTimeout%3FclearTimeout%3Aa%7Dcatch%28e%29%7Br%3Da%7D%7D%28%29%3Bvar%20c%2Cu%3D%5B%5D%2Cf%3D%211%2Cl%3D-1%3Bfunction%20p%28%29%7Bf%26%26c%26%26%28f%3D%211%2Cc.length%3Fu%3Dc.concat%28u%29%3Al%3D-1%2Cu.length%26%26d%28%29%29%7Dfunction%20d%28%29%7Bif%28%21f%29%7Bvar%20e%3Ds%28p%29%3Bf%3D%210%3Bfor%28var%20t%3Du.length%3Bt%3B%29%7Bfor%28c%3Du%2Cu%3D%5B%5D%3B++l%3Ct%3B%29c%26%26c%5Bl%5D.run%28%29%3Bl%3D-1%2Ct%3Du.length%7Dc%3Dnull%2Cf%3D%211%2Cfunction%28e%29%7Bif%28r%3D%3D%3DclearTimeout%29return%20clearTimeout%28e%29%3Bif%28%28r%3D%3D%3Da%7C%7C%21r%29%26%26clearTimeout%29return%20r%3DclearTimeout%2CclearTimeout%28e%29%3Btry%7Br%28e%29%7Dcatch%28t%29%7Btry%7Breturn%20r.call%28null%2Ce%29%7Dcatch%28t%29%7Breturn%20r.call%28this%2Ce%29%7D%7D%7D%28e%29%7D%7Dfunction%20h%28e%2Ct%29%7Bthis.fun%3De%2Cthis.array%3Dt%7Dfunction%20m%28%29%7B%7Do.nextTick%3Dfunction%28e%29%7Bvar%20t%3Dnew%20Array%28arguments.length-1%29%3Bif%28arguments.length%3E1%29for%28var%20n%3D1%3Bn%3Carguments.length%3Bn++%29t%5Bn-1%5D%3Darguments%5Bn%5D%3Bu.push%28new%20h%28e%2Ct%29%29%2C1%21%3D%3Du.length%7C%7Cf%7C%7Cs%28d%29%7D%2Ch.prototype.run%3Dfunction%28%29%7Bthis.fun.apply%28null%2Cthis.array%29%7D%2Co.title%3D%22browser%22%2Co.browser%3D%210%2Co.env%3D%7B%7D%2Co.argv%3D%5B%5D%2Co.version%3D%22%22%2Co.versions%3D%7B%7D%2Co.on%3Dm%2Co.addListener%3Dm%2Co.once%3Dm%2Co.off%3Dm%2Co.removeListener%3Dm%2Co.removeAllListeners%3Dm%2Co.emit%3Dm%2Co.prependListener%3Dm%2Co.prependOnceListener%3Dm%2Co.listeners%3Dfunction%28e%29%7Breturn%5B%5D%7D%2Co.binding%3Dfunction%28e%29%7Bthrow%20new%20Error%28%22process.binding%20is%20not%20supported%22%29%7D%2Co.cwd%3Dfunction%28%29%7Breturn%22/%22%7D%2Co.chdir%3Dfunction%28e%29%7Bthrow%20new%20Error%28%22process.chdir%20is%20not%20supported%22%29%7D%2Co.umask%3Dfunction%28%29%7Breturn%200%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%3Be.exports%3Dfunction%28e%2Ct%29%7Br.forEach%28e%2C%28function%28n%2Cr%29%7Br%21%3D%3Dt%26%26r.toUpperCase%28%29%3D%3D%3Dt.toUpperCase%28%29%26%26%28e%5Bt%5D%3Dn%2Cdelete%20e%5Br%5D%29%7D%29%29%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%287%29%3Be.exports%3Dfunction%28e%2Ct%2Cn%29%7Bvar%20o%3Dn.config.validateStatus%3B%21o%7C%7Co%28n.status%29%3Fe%28n%29%3At%28r%28%22Request%20failed%20with%20status%20code%20%22+n.status%2Cn.config%2Cnull%2Cn.request%2Cn%29%29%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%2Ct%2Cn%2Cr%2Co%29%7Breturn%20e.config%3Dt%2Cn%26%26%28e.code%3Dn%29%2Ce.request%3Dr%2Ce.response%3Do%2Ce.isAxiosError%3D%210%2Ce.toJSON%3Dfunction%28%29%7Breturn%7Bmessage%3Athis.message%2Cname%3Athis.name%2Cdescription%3Athis.description%2Cnumber%3Athis.number%2CfileName%3Athis.fileName%2ClineNumber%3Athis.lineNumber%2CcolumnNumber%3Athis.columnNumber%2Cstack%3Athis.stack%2Cconfig%3Athis.config%2Ccode%3Athis.code%7D%7D%2Ce%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%2824%29%2Co%3Dn%2825%29%3Be.exports%3Dfunction%28e%2Ct%29%7Breturn%20e%26%26%21r%28t%29%3Fo%28e%2Ct%29%3At%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%29%7Breturn/%5E%28%5Ba-z%5D%5Ba-z%5Cd%5C+%5C-%5C.%5D*%3A%29%3F%5C/%5C//i.test%28e%29%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%2Ct%29%7Breturn%20t%3Fe.replace%28/%5C/+%24/%2C%22%22%29+%22/%22+t.replace%28/%5E%5C/+/%2C%22%22%29%3Ae%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%2Co%3D%5B%22age%22%2C%22authorization%22%2C%22content-length%22%2C%22content-type%22%2C%22etag%22%2C%22expires%22%2C%22from%22%2C%22host%22%2C%22if-modified-since%22%2C%22if-unmodified-since%22%2C%22last-modified%22%2C%22location%22%2C%22max-forwards%22%2C%22proxy-authorization%22%2C%22referer%22%2C%22retry-after%22%2C%22user-agent%22%5D%3Be.exports%3Dfunction%28e%29%7Bvar%20t%2Cn%2Ci%2Ca%3D%7B%7D%3Breturn%20e%3F%28r.forEach%28e.split%28%22%5Cn%22%29%2C%28function%28e%29%7Bif%28i%3De.indexOf%28%22%3A%22%29%2Ct%3Dr.trim%28e.substr%280%2Ci%29%29.toLowerCase%28%29%2Cn%3Dr.trim%28e.substr%28i+1%29%29%2Ct%29%7Bif%28a%5Bt%5D%26%26o.indexOf%28t%29%3E%3D0%29return%3Ba%5Bt%5D%3D%22set-cookie%22%3D%3D%3Dt%3F%28a%5Bt%5D%3Fa%5Bt%5D%3A%5B%5D%29.concat%28%5Bn%5D%29%3Aa%5Bt%5D%3Fa%5Bt%5D+%22%2C%20%22+n%3An%7D%7D%29%29%2Ca%29%3Aa%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%3Be.exports%3Dr.isStandardBrowserEnv%28%29%3Ffunction%28%29%7Bvar%20e%2Ct%3D/%28msie%7Ctrident%29/i.test%28navigator.userAgent%29%2Cn%3Ddocument.createElement%28%22a%22%29%3Bfunction%20o%28e%29%7Bvar%20r%3De%3Breturn%20t%26%26%28n.setAttribute%28%22href%22%2Cr%29%2Cr%3Dn.href%29%2Cn.setAttribute%28%22href%22%2Cr%29%2C%7Bhref%3An.href%2Cprotocol%3An.protocol%3Fn.protocol.replace%28/%3A%24/%2C%22%22%29%3A%22%22%2Chost%3An.host%2Csearch%3An.search%3Fn.search.replace%28/%5E%5C%3F/%2C%22%22%29%3A%22%22%2Chash%3An.hash%3Fn.hash.replace%28/%5E%23/%2C%22%22%29%3A%22%22%2Chostname%3An.hostname%2Cport%3An.port%2Cpathname%3A%22/%22%3D%3D%3Dn.pathname.charAt%280%29%3Fn.pathname%3A%22/%22+n.pathname%7D%7Dreturn%20e%3Do%28window.location.href%29%2Cfunction%28t%29%7Bvar%20n%3Dr.isString%28t%29%3Fo%28t%29%3At%3Breturn%20n.protocol%3D%3D%3De.protocol%26%26n.host%3D%3D%3De.host%7D%7D%28%29%3Afunction%28%29%7Breturn%210%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%281%29%3Be.exports%3Dr.isStandardBrowserEnv%28%29%3F%7Bwrite%3Afunction%28e%2Ct%2Cn%2Co%2Ci%2Ca%29%7Bvar%20s%3D%5B%5D%3Bs.push%28e+%22%3D%22+encodeURIComponent%28t%29%29%2Cr.isNumber%28n%29%26%26s.push%28%22expires%3D%22+new%20Date%28n%29.toGMTString%28%29%29%2Cr.isString%28o%29%26%26s.push%28%22path%3D%22+o%29%2Cr.isString%28i%29%26%26s.push%28%22domain%3D%22+i%29%2C%210%3D%3D%3Da%26%26s.push%28%22secure%22%29%2Cdocument.cookie%3Ds.join%28%22%3B%20%22%29%7D%2Cread%3Afunction%28e%29%7Bvar%20t%3Ddocument.cookie.match%28new%20RegExp%28%22%28%5E%7C%3B%5C%5Cs*%29%28%22+e+%22%29%3D%28%5B%5E%3B%5D*%29%22%29%29%3Breturn%20t%3FdecodeURIComponent%28t%5B3%5D%29%3Anull%7D%2Cremove%3Afunction%28e%29%7Bthis.write%28e%2C%22%22%2CDate.now%28%29-864e5%29%7D%7D%3A%7Bwrite%3Afunction%28%29%7B%7D%2Cread%3Afunction%28%29%7Breturn%20null%7D%2Cremove%3Afunction%28%29%7B%7D%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bvar%20r%3Dn%289%29%3Bfunction%20o%28e%29%7Bif%28%22function%22%21%3Dtypeof%20e%29throw%20new%20TypeError%28%22executor%20must%20be%20a%20function.%22%29%3Bvar%20t%3Bthis.promise%3Dnew%20Promise%28%28function%28e%29%7Bt%3De%7D%29%29%3Bvar%20n%3Dthis%3Be%28%28function%28e%29%7Bn.reason%7C%7C%28n.reason%3Dnew%20r%28e%29%2Ct%28n.reason%29%29%7D%29%29%7Do.prototype.throwIfRequested%3Dfunction%28%29%7Bif%28this.reason%29throw%20this.reason%7D%2Co.source%3Dfunction%28%29%7Bvar%20e%3Breturn%7Btoken%3Anew%20o%28%28function%28t%29%7Be%3Dt%7D%29%29%2Ccancel%3Ae%7D%7D%2Ce.exports%3Do%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%29%7Breturn%20function%28t%29%7Breturn%20e.apply%28null%2Ct%29%7D%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7Bvar%20r%3Dn%2810%29%2Co%3Dn%2832%29%3B%22string%22%3D%3Dtypeof%28o%3Do.__esModule%3Fo.default%3Ao%29%26%26%28o%3D%5B%5Be.i%2Co%2C%22%22%5D%5D%29%3Bvar%20i%3D%7Binsert%3A%22head%22%2Csingleton%3A%211%7D%3Br%28o%2Ci%29%3Be.exports%3Do.locals%7C%7C%7B%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7B%28t%3Dn%2811%29%28%211%29%29.push%28%5Be.i%2C%22body%7Bmargin%3A0%3Bbackground-color%3A%23282c34%3Bfont-family%3A-apple-system%2C%20BlinkMacSystemFont%2C%20%27Segoe%20UI%27%2C%20%27Roboto%27%2C%20%27Oxygen%27%2C%5Cr%20%27Ubuntu%27%2C%20%27Cantarell%27%2C%20%27Fira%20Sans%27%2C%20%27Droid%20Sans%27%2C%20%27Helvetica%20Neue%27%2C%5Cr%20sans-serif%3B-webkit-font-smoothing%3Aantialiased%3B-moz-osx-font-smoothing%3Agrayscale%7D%5Cn%22%2C%22%22%5D%29%2Ce.exports%3Dt%7D%2Cfunction%28e%2Ct%2Cn%29%7Bvar%20r%3Dn%2810%29%2Co%3Dn%2834%29%3B%22string%22%3D%3Dtypeof%28o%3Do.__esModule%3Fo.default%3Ao%29%26%26%28o%3D%5B%5Be.i%2Co%2C%22%22%5D%5D%29%3Bvar%20i%3D%7Binsert%3A%22head%22%2Csingleton%3A%211%7D%3Br%28o%2Ci%29%3Be.exports%3Do.locals%7C%7C%7B%7D%7D%2Cfunction%28e%2Ct%2Cn%29%7Bvar%20r%3Dn%2811%29%2Co%3Dn%2835%29%2Ci%3Dn%2836%29%2Ca%3Dn%2837%29%3Bt%3Dr%28%211%29%3Bvar%20s%3Do%28i%29%2Cc%3Do%28a%29%3Bt.push%28%5Be.i%2C%22.container%7Bdisplay%3Aflex%3Bflex-flow%3Acolumn%3Balign-items%3Acenter%3Bjustify-content%3Aspace-evenly%3Bheight%3A100%25%3Bmargin%3A0%2010%25%3Btext-align%3Acenter%7D.heading%7Bfont-size%3A2em%3Bcolor%3Awhite%7D.link%7Btext-align%3Acenter%3Bcolor%3A%2361dafb%3Btext-decoration%3Anone%7D.info%7Bfont-size%3A1.3em%3Bcolor%3Awhite%7D.react-logo%7Bheight%3A350px%3Bwidth%3A350px%3Bbackground%3Aurl%28%22+s+%22%29%3Bbackground-size%3Acover%3Banimation%3Arotate%2010s%20infinite%20linear%7D.sn-logo%7Bheight%3A120px%3Bwidth%3A400px%3Bbackground%3Aurl%28%22+c+%22%29%3Bbackground-size%3Acover%7D@keyframes%20rotate%7Bfrom%7Btransform%3Arotate%280deg%29%7Dto%7Btransform%3Arotate%28359deg%29%7D%7D%5Cn%22%2C%22%22%5D%29%2Ce.exports%3Dt%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Be.exports%3Dfunction%28e%2Ct%29%7Breturn%20t%7C%7C%28t%3D%7B%7D%29%2C%22string%22%21%3Dtypeof%28e%3De%26%26e.__esModule%3Fe.default%3Ae%29%3Fe%3A%28/%5E%5B%27%22%5D.*%5B%27%22%5D%24/.test%28e%29%26%26%28e%3De.slice%281%2C-1%29%29%2Ct.hash%26%26%28e+%3Dt.hash%29%2C/%5B%22%27%28%29%20%5Ct%5Cn%5D/.test%28e%29%7C%7Ct.needQuotes%3F%27%22%27.concat%28e.replace%28/%22/g%2C%27%5C%5C%22%27%29.replace%28/%5Cn/g%2C%22%5C%5Cn%22%29%2C%27%22%27%29%3Ae%29%7D%7D%2Cfunction%28e%2Ct%29%7Be.exports%3D%22/react-logo.png%22%7D%2Cfunction%28e%2Ct%29%7Be.exports%3D%22/sn-logo.png%22%7D%2Cfunction%28e%2Ct%2Cn%29%7B%22use%20strict%22%3Bn.r%28t%29%3Bvar%20r%3Dn%280%29%2Co%3Dn.n%28r%29%2Ci%3Dn%2812%29%2Ca%3Dn.n%28i%29%2Cs%3Dn%2813%29%2Cc%3Dn.n%28s%29%3Bn%2831%29%2Cn%2833%29%3Bfunction%20u%28%29%7Breturn%20o.a.createElement%28%22div%22%2C%7BclassName%3A%22container%22%7D%2Co.a.createElement%28%22div%22%2C%7BclassName%3A%22heading%22%7D%2C%22Welcome%20to%20React%20with%20ServiceNow%22%29%2Co.a.createElement%28%22div%22%2C%7BclassName%3A%22react-logo%22%7D%29%2Co.a.createElement%28%22div%22%2C%7BclassName%3A%22sn-logo%22%7D%29%2Co.a.createElement%28%22div%22%2C%7BclassName%3A%22info%22%7D%2C%22Copy%20the%20following%20parameters%20to%20%22%2Co.a.createElement%28%22span%22%2C%7BclassName%3A%22link%22%7D%2C%22servicenow.config.js%22%29%2C%22%20file%20in%20your%20local%20development%20environment%22%29%2Co.a.createElement%28%22div%22%2C%7BclassName%3A%22info%22%2Cstyle%3A%7BmarginTop%3A%2220px%22%7D%7D%2Co.a.createElement%28%22strong%22%2Cnull%2C%22APP_URL_BASE%20%3A%20%22%29%2Co.a.createElement%28%22span%22%2Cnull%2C%22%27app_url_base_placeholder%27%22%29%29%2Co.a.createElement%28%22div%22%2C%7BclassName%3A%22info%22%2Cstyle%3A%7BmarginBottom%3A%2220px%22%7D%7D%2Co.a.createElement%28%22strong%22%2Cnull%2C%22SCRIPT_RECORD_ID%20%3A%20%22%29%2Co.a.createElement%28%22span%22%2Cnull%2C%22%27script_record_id_placeholder%27%22%29%29%2Co.a.createElement%28%22div%22%2Cnull%2Co.a.createElement%28%22a%22%2C%7BclassName%3A%22link%22%2Chref%3A%22https%3A//developer.servicenow.com/dev.do%23%21/guide/now-experience%22%7D%2C%22Click%20here%20to%20know%20about%20Now%20Experience%20UI%20Framework%22%29%2Co.a.createElement%28%22br%22%2Cnull%29%2Co.a.createElement%28%22a%22%2C%7BclassName%3A%22link%22%2Chref%3A%22https%3A//reactjs.org/tutorial/tutorial.html%22%7D%2C%22Click%20here%20for%20React%20tutorial%22%29%29%29%7Dfunction%20f%28%29%7Breturn%20o.a.createElement%28u%2Cnull%29%7Dc.a.defaults.headers%5B%22X-userToken%22%5D%3Dwindow.g_ck%2Ca.a.render%28o.a.createElement%28f%2Cnull%29%2Cdocument.getElementsByTagName%28%22root%22%29%5B0%5D%29%7D%5D%29%3B%7D%29%28__TECTONIC__react%2C%20__TECTONIC__react_dom%29%3B';]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-05-29 08:03:34&lt;/sys_created_on&gt;&lt;sys_id&gt;ade4208a0749901037c7f2ae7c1ed0b3&lt;/sys_id&gt;&lt;sys_mod_count&gt;75&lt;/sys_mod_count&gt;&lt;sys_name&gt;ReactSPAUtil&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_ade4208a0749901037c7f2ae7c1ed0b3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-07-23 12:06:07&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-166881286</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>53ab1b510792501037c7f2ae7c1ed007</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1737b9101a80000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>ReactSPAUtil</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>315c64b3a2c690109c6a21d30231b87e</update_guid>
+<update_guid_history>315c64b3a2c690109c6a21d30231b87e:-166881286,57838b8c37355010e99e1732c4926424:141344331,b101cb4c2e3550105e06eb1670bbce2d:500811501,368f360cc9355010f7c2db1cca9bc82b:1022611760,7f2ffec85635501034aae7bc8d1ddd06:-1533044605,856eba88de355010455aec53b412dbba:-696236104,fc3d7a8823355010fd4e620deba6758a:1538025449,0aecb688a03550109b9fe9cbcfda847a:-1437532787,5e9cf288cf3550108a7a5ebe6c690113:338952704,a46bb648a63550108ab11d1d2d0a7828:239839946,b60afec45b355010f301c5b651c88762:714580409,e9b1be0028355010ca47903f12650291:-320134101,6b6f6e00b3355010fc96d498a2ce9a32:-515068577,3ead2a4c67f1501002692c6f42dd8da7:-229245892,db7726c8ccf15010ea08ecb746da415a:2116967917,c407a2c898f150100607d13a5e434366:-43044717,b59cc5e021d19010d9223148bd1e0198:-1770471803,45cbc5a073d19010a5fa2b2a4d2702ca:-1078121901,baaa896021d19010fd63fe7ff5712b8c:-1211762405,04f9c160d5d1901007999237201437b2:551011194,96d7c96cc1919010048a5a2a832044e7:-500098735,51ff7c28f191901006d20ba09c26cd5e:-1377080948,07da7ca40591901094f0f6e379a45be3:-1342019597,e02a34a490919010947b816b449723fa:-2044601805,9ee698c8f31d10109a329394d0e23f86:1137237432,72a658c85d1d1010a3f290dc747672bf:-1017411961,4e4650c82e1d101044c6bd074501ad08:435024264,ec951888091d10101dfc963743b7786d:487040519,07841088031d10106945a67d012415f4:-806433160,70441088eb1d1010ca90383be8b28b84:1374309977,4e34d848831d1010760d95503fa827c2:1185655073,cec39848e41d1010e83479f81628229d:-1751918284,88f11408f11d10102553a988d00799f2:-1842874116,f59ac0c0af1d10101e7946d39df7b043:-1070966463,31563be7504110101590288a91db9d56:-2046763113,4f75ffa767411010a35d28b59d7195f9:1974160277,6765fba7bd4110100b7543bb52a4950d:-1387938390,bf05b7a39241101035aa68777191d6a5:-498595729,8b9fa12b4cc59410997a366cda1762b0:1847987442,1aa3ff9bb9819410ddebe3497ecc8781:-47604080,1e03f79b59819410a64783a9125760f9:165192392,34d8d6937acd541079d104f27b3a7429:-1414097267,94dccadb538d54106fa95e69c81e9f16:165192392,935cca9be18d5410da8ba958a5b9055e:652486709,ab8e315f8c4d5410198ee007964bc5fe:-2011504057,921e3593548d54109daf5ca7c8bb66a0:1774294798,68cdbd53388d54100c86438726bf99e7:1422196933,548d395bb64d54106abe99547ca45b7e:-1046085970,374d3113238d5410ff7e36b11871201c:-1072056107,1b3d7953fc8d54102fc8789e5aad3545:223530776,b6d53d03c4055410fa1e0e9c1257601a:-1154159645,5855b9cf38c15410cb352ad830489411:425428367,bef479cfa4c15410351f841bd039aa76:-83096763,254475cf96c154105e7c5a362dc999f1:1956341577,a804f1cfa0c15410b0ff44eb66996bf3:-1089282939,a6937d4ff8c15410955a738006fbe698:1956341577,2b21750fc5c1541036dbf3719e8c7202:1852532749,7e2079cbb3c154102fae270e58f09cdf:1478130937,25afe58badc1541030c40cb60bd3159f:-1996027679,2c9de50b1dc1541045415124872dd2cc:-1614340830,080c2d0baac15410c3daae8de1dbebf9:-1347423463,719921c7f1c15410728b14ebab8b6ca7:-987437351,2529e54740c15410b384c6504d20e750:-1610789765,8388e547c9c1541054d5b66f9dce1a03:2128444423,4cf76187f9c15410c3637932045fe6b9:-1633720254,6347a1472fc15410774ce95a355ef5ac:2091183127,28866147c9c1541049a103ff7d515e00:-1577204150,3236a90789c1541058a03dcbb45517e1:-1887188787,0b55a9c30ac15410012e490cb9c62124:1874272589,2954e9838ac1541074d8298cfcb8539c:-64039213,eb8321c303c15410b02c30b794a3f344:-1027049514,6001a1436bc154109369dbe4d3a1e67a:808600188,d51f9d8f1e81541057bcc787c7ad85a5:1063293979,6af5918bce815410b06ec73836b94c38:-205114462,cba5518ba6815410ba100d9aebe3af85:1147519689,6865acc6f9499010e8dc64a86e48783b:1800374900</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_cat_item_producer_2cbf637a078d141037c7f2ae7c1ed03d</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sc_cat_item_producer"&gt;&lt;sc_cat_item_producer action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;availability&gt;on_desktop&lt;/availability&gt;&lt;billable&gt;false&lt;/billable&gt;&lt;can_cancel&gt;false&lt;/can_cancel&gt;&lt;category display_value="Application Management"&gt;6c9ca56707c5941037c7f2ae7c1ed009&lt;/category&gt;&lt;cost&gt;0&lt;/cost&gt;&lt;custom_cart/&gt;&lt;delivery_plan display_value="DEFAULT"&gt;523da512c611228900811a37c97c2014&lt;/delivery_plan&gt;&lt;delivery_plan_script/&gt;&lt;delivery_time&gt;1970-01-03 00:00:00&lt;/delivery_time&gt;&lt;description/&gt;&lt;display_price_property&gt;non_zero&lt;/display_price_property&gt;&lt;entitlement_script/&gt;&lt;flow_designer_flow/&gt;&lt;group/&gt;&lt;hide_sp&gt;false&lt;/hide_sp&gt;&lt;icon&gt;4930777a078d141037c7f2ae7c1ed04d&lt;/icon&gt;&lt;ignore_price&gt;false&lt;/ignore_price&gt;&lt;image/&gt;&lt;list_price&gt;0&lt;/list_price&gt;&lt;location/&gt;&lt;mandatory_attachment&gt;false&lt;/mandatory_attachment&gt;&lt;meta/&gt;&lt;mobile_hide_price&gt;false&lt;/mobile_hide_price&gt;&lt;mobile_picture/&gt;&lt;mobile_picture_type&gt;use_desktop_picture&lt;/mobile_picture_type&gt;&lt;model/&gt;&lt;name&gt;Create React App&lt;/name&gt;&lt;no_attachment_v2&gt;false&lt;/no_attachment_v2&gt;&lt;no_cart&gt;false&lt;/no_cart&gt;&lt;no_cart_v2&gt;false&lt;/no_cart_v2&gt;&lt;no_delivery_time_v2&gt;false&lt;/no_delivery_time_v2&gt;&lt;no_order&gt;false&lt;/no_order&gt;&lt;no_order_now&gt;false&lt;/no_order_now&gt;&lt;no_proceed_checkout&gt;false&lt;/no_proceed_checkout&gt;&lt;no_quantity&gt;false&lt;/no_quantity&gt;&lt;no_quantity_v2&gt;false&lt;/no_quantity_v2&gt;&lt;no_search&gt;false&lt;/no_search&gt;&lt;no_wishlist_v2&gt;false&lt;/no_wishlist_v2&gt;&lt;omit_price&gt;false&lt;/omit_price&gt;&lt;order&gt;0&lt;/order&gt;&lt;ordered_item_link/&gt;&lt;picture&gt;5750b77a078d141037c7f2ae7c1ed058&lt;/picture&gt;&lt;post_insert_script/&gt;&lt;preview&gt;JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;amp;sysparm_id=2cbf637a078d141037c7f2ae7c1ed03d&amp;amp;sysparm_preview=true", "summary");&lt;/preview&gt;&lt;price&gt;0&lt;/price&gt;&lt;recurring_frequency/&gt;&lt;recurring_price&gt;0&lt;/recurring_price&gt;&lt;redirect_url&gt;generated_record&lt;/redirect_url&gt;&lt;request_method/&gt;&lt;roles/&gt;&lt;sc_catalogs&gt;f82cad2707c5941037c7f2ae7c1ed013&lt;/sc_catalogs&gt;&lt;sc_ic_item_staging/&gt;&lt;sc_ic_version/&gt;&lt;script&gt;&lt;![CDATA[current.setAbortAction(true);
+]]&gt;&lt;/script&gt;&lt;short_description&gt;This page can be used to create a new React Application in ServiceNow&lt;/short_description&gt;&lt;show_variable_help_on_load&gt;false&lt;/show_variable_help_on_load&gt;&lt;start_closed&gt;false&lt;/start_closed&gt;&lt;sys_class_name&gt;sc_cat_item_producer&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-01 06:44:41&lt;/sys_created_on&gt;&lt;sys_id&gt;2cbf637a078d141037c7f2ae7c1ed03d&lt;/sys_id&gt;&lt;sys_mod_count&gt;38&lt;/sys_mod_count&gt;&lt;sys_name&gt;Create React App&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sc_cat_item_producer_2cbf637a078d141037c7f2ae7c1ed03d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-04 11:49:45&lt;/sys_updated_on&gt;&lt;table_name&gt;sys_ux_page&lt;/table_name&gt;&lt;template/&gt;&lt;type&gt;item&lt;/type&gt;&lt;use_sc_layout&gt;true&lt;/use_sc_layout&gt;&lt;vendor/&gt;&lt;view/&gt;&lt;visible_bundle&gt;true&lt;/visible_bundle&gt;&lt;visible_guide&gt;true&lt;/visible_guide&gt;&lt;visible_standalone&gt;true&lt;/visible_standalone&gt;&lt;workflow/&gt;&lt;/sc_cat_item_producer&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=2cbf637a078d141037c7f2ae7c1ed03d"/&gt;&lt;fx_price action="delete_multiple" query="id=2cbf637a078d141037c7f2ae7c1ed03d"/&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;price&lt;/field&gt;&lt;id&gt;2cbf637a078d141037c7f2ae7c1ed03d&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-01 06:44:41&lt;/sys_created_on&gt;&lt;sys_id&gt;0a10777a078d141037c7f2ae7c1ed047&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-01 06:44:41&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item_producer&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;recurring_price&lt;/field&gt;&lt;id&gt;2cbf637a078d141037c7f2ae7c1ed03d&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-01 06:44:41&lt;/sys_created_on&gt;&lt;sys_id&gt;4e10777a078d141037c7f2ae7c1ed048&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-01 06:44:41&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item_producer&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-496273201</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>57ab1b510792501037c7f2ae7c1ed006</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1737b73e9880000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table>sys_ux_page</table>
+<target_name>Create React App</target_name>
+<type>Record Producer</type>
+<update_domain>global</update_domain>
+<update_guid>0815ec7f20869010bc21a4bc3fe48fde</update_guid>
+<update_guid_history>0815ec7f20869010bc21a4bc3fe48fde:-496273201,84b25c08d91d10107eea1bc7ade47352:1367875909,e5a51b33fc891010460ae0f36b8f6540:-2013267715,802e21e77dc5941056800b6af776942c:485497135,5ffd69a7f9c5941002b60778c4c48f4c:-754998933,cd2da1a7fcc59410edf88a53689f286e:485497135,81bce56722c59410070341be51cd2cdb:-899648717,0dbce5676cc594106cc57b5ec5d74ad7:-899648717,41bce56743c59410b3e1eab17f636fc9:1242531648,080ce927b9c59410f85e8f4a65d5742c:2131882295,8beba12700c59410d2e886014df02995:1570617225,20cb2d6b9bc19410198f56a8bad86b84:1242531648,b73bade398c594105e2ce08343b63776:335020000,4bea6de3abc59410babab963b32b2277:-781614458,d285735f9a819410f9d260b8301f25f1:1334701411,fd45bfdbe8819410029208a52aa54f00:-578292250,36d4bfdbea8194102ed91cc2e216e732:-559378958,2bdccadbd18d54108e30bacfaec71be1:-1603951097,cbabc697a18d54109f8af64ae197e584:-1183520436,e86b069b498d54103afa5f3bc793c83e:-2040218792,8ee5f503b60554100e770e7ad8105cea:-1548415256,c275f5034d055410284cd8d653cd6b00:837506260,42353dcfaec15410e0a63adc00762b67:-1244295034,7eefedcbabc154107dc2118ed1325c56:-1548415256,d7af6d0bd7c15410ebba17bce45c00dc:-1535733805,ae7fe58bacc154108f72054e20516be0:-1535733805,7b8d6d0b3ec154106e4eb5cec030f87b:-1739096928,16a59d47c88154102a597fae25899bc0:-1535733805,a51e05473b8154106bd9df5b55282ce9:257590498,0d0bcd83b5815410d7de498514c2538b:1996177138,341cb3b222cd141008ac9fa78a9ebba6:-1045048422,e4dbff7244cd14102a171d46efeb58e1:-207182294,d97b7b7268cd1410d4b83ff1617761c2:-938582922,5b4b3f3e8d8d141013a968697a392cd8:140941610,909ab3bece8d1410f27345b2e6d69e0f:-938582922,abf3f33e178d1410650726ee27b3422e:1558677438,fec277fa368d14104a7ef209b7a6ece2:-558831579,0012fbba248d1410facfd0e2764a978e:-606960619,d6f1fbbaab8d1410fc8b02908747a439:-1459352784,2be1bbba4c8d141092ad1d2f75e1b8e5:-348999621,87b13bba0f8d141064c25986cc7a16cf:2057572245,c58177ba668d1410ac2ba6e07fcdd9f3:-1878872852,97507b7a978d141075261836fcdb3f36:1720895425,9f50b77abe8d1410575bd44d1ebd3e5b:-549685598,a540f77a128d1410fd757cf1b6ab7d72:1277961074,4130b77a208d1410c15ee04fff9fc1f1:1129117772,4930b77a4b8d141035a9a6f504dfc2eb:1958683052,6b10777adc8d1410b88740bc1de4b599:1694491880,6310777af68d1410658822321f99c290:1065833001,5a10777abd8d1410e181acad6bc7fc4b:24250836</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_cat_item_catalog_e10d6d6707c5941037c7f2ae7c1ed0f0</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog"><sc_cat_item_catalog action="INSERT_OR_UPDATE"><sc_cat_item display_value="Remove React App">1301258f0781541037c7f2ae7c1ed0c4</sc_cat_item><sc_catalog display_value="React SPA">f82cad2707c5941037c7f2ae7c1ed013</sc_catalog><sys_class_name>sc_cat_item_catalog</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:07:28</sys_created_on><sys_id>e10d6d6707c5941037c7f2ae7c1ed0f0</sys_id><sys_mod_count>0</sys_mod_count><sys_name>React SPA.Purge React App</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sc_cat_item_catalog_e10d6d6707c5941037c7f2ae7c1ed0f0</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:07:28</sys_updated_on></sc_cat_item_catalog></record_update>]]></payload>
+<payload_hash>-859851093</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>5bab1b510792501037c7f2ae7c1ed005</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9b7020000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>React SPA.Purge React App</target_name>
+<type>Catalog Items Catalog</type>
+<update_domain>global</update_domain>
+<update_guid>01860000f21d10103e75c74bf41faff7</update_guid>
+<update_guid_history>01860000f21d10103e75c74bf41faff7:-859851093,210d6d679dc59410edfae708850fa9f2:2074750048</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>item_option_new_f281a98f0781541037c7f2ae7c1ed05a</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new"><item_option_new action="INSERT_OR_UPDATE"><active>true</active><attributes/><cat_item display_value="Remove React App">1301258f0781541037c7f2ae7c1ed0c4</cat_item><category/><choice_direction>down</choice_direction><choice_field/><choice_table/><create_roles/><default_html_value/><default_value/><delete_roles/><delivery_plan/><description/><display_title>false</display_title><do_not_select_first>false</do_not_select_first><dynamic_default_value/><dynamic_ref_qual/><example_text/><field/><global>false</global><help_tag>More information</help_tag><help_text/><include_none>false</include_none><instructions/><layout>normal</layout><list_table/><lookup_label/><lookup_price/><lookup_table/><lookup_unique>false</lookup_unique><lookup_value/><macro/><mandatory>true</mandatory><map_to_field>false</map_to_field><mask_use_confirmation>false</mask_use_confirmation><mask_use_encryption>false</mask_use_encryption><name>ux_page</name><order/><price_if_checked>0</price_if_checked><pricing_implications>false</pricing_implications><question_text>Application Name</question_text><read_roles/><rec_lookup_price/><rec_price_if_checked>0</rec_price_if_checked><record/><record_producer_table>sys_ux_page</record_producer_table><reference>sys_ux_page</reference><reference_qual>sys_scope!=cb4faa9c0f283300bb57f4a1ff767e0e^sys_scope!=56b33d33664260cd494440286cda2fea^sys_scope=javascript: gs.getCurrentApplicationId()^EQ</reference_qual><reference_qual_condition table="sys_ux_page">sys_scope!=cb4faa9c0f283300bb57f4a1ff767e0e^sys_scope!=56b33d33664260cd494440286cda2fea^sys_scope=javascript: gs.getCurrentApplicationId()^EQ<item display_table="sys_scope" display_value="Workspace Core" endquery="false" field="sys_scope" goto="false" newquery="false" operator="!=" or="false" value="cb4faa9c0f283300bb57f4a1ff767e0e"/><item display_table="sys_scope" display_value="sn-ui-builder" endquery="false" field="sys_scope" goto="false" newquery="false" operator="!=" or="false" value="56b33d33664260cd494440286cda2fea"/><item endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="javascript: gs.getCurrentApplicationId()"/><item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/></reference_qual_condition><scale_max>5</scale_max><scale_min>0</scale_min><show_help>false</show_help><show_help_on_load>false</show_help_on_load><sp_widget/><summary_macro/><sys_class_name>item_option_new</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 15:03:24</sys_created_on><sys_id>f281a98f0781541037c7f2ae7c1ed05a</sys_id><sys_mod_count>6</sys_mod_count><sys_name>Application Name</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>item_option_new_f281a98f0781541037c7f2ae7c1ed05a</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-29 20:59:31</sys_updated_on><table/><tooltip>Name of the React application</tooltip><type>8</type><ui_page/><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><validate_regex/><variable_name/><variable_set/><variable_width/><visibility>1</visibility><visible_bundle>true</visible_bundle><visible_guide>true</visible_guide><visible_standalone>true</visible_standalone><visible_summary>true</visible_summary><write_roles/></item_option_new><sys_translated_text action="delete_multiple" query="documentkey=f281a98f0781541037c7f2ae7c1ed05a"/><fx_price action="delete_multiple" query="id=f281a98f0781541037c7f2ae7c1ed05a"/><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>price_if_checked</field><id>f281a98f0781541037c7f2ae7c1ed05a</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 15:03:24</sys_created_on><sys_id>6f32ed4307c1541037c7f2ae7c1ed0a4</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-01 15:03:24</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>rec_price_if_checked</field><id>f281a98f0781541037c7f2ae7c1ed05a</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 15:03:24</sys_created_on><sys_id>2732ed4307c1541037c7f2ae7c1ed0a4</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-01 15:03:24</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price></record_update>]]></payload>
+<payload_hash>-1783659920</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>5fab1b510792501037c7f2ae7c1ed004</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17301e0bb870000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Application Name</target_name>
+<type>Variable</type>
+<update_domain>global</update_domain>
+<update_guid>5540434cae355010bf72a59320ee0f6e</update_guid>
+<update_guid_history>5540434cae355010bf72a59320ee0f6e:-1783659920,5df23ac091355010a8fc8438d41ee396:-1569414230,368f87bc4aed5410d345713e5ac15eba:1402259457,89860000941d10102f6fb68574b988f0:-311265237,9d9ea5a78cc59410fd5c556a279c4e4a:464922348,e9f0f90f42c154106c25f58b99d2ac74:1049697363,0303a58317c15410b03152d05e0086af:-651809379,6732ed4382c15410e5779bafe214a1a7:690485969</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ws_operation_f5bec6bd07c1901037c7f2ae7c1ed072</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri/&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;POST&lt;/http_method&gt;&lt;name&gt;Handle script bundle&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    var requestBody = JSON.parse(request.body.dataString);
+    var uxScriptRecordId = request.pathParams.sys_id || '';
+    var script = requestBody.script || '';
+
+    if (uxScriptRecordId.length === 32) {
+        var uxScriptGr = new GlideRecord(ReactSPAUtil.UX_TABLE_NAMES.script);
+        uxScriptGr.addQuery('sys_id', uxScriptRecordId);
+        uxScriptGr.query();
+        if (uxScriptGr.next()) {
+            uxScriptGr.script = unescape(script);
+            uxScriptGr.update();
+            response.setBody({
+                message: "Upload successful"
+            });
+            response.setStatus(200);
+        } else {
+            throw "React application not found, sys_id="+uxScriptRecordId;
+        }
+    } else {
+        throw "Path param invalid : 'sys_id'";
+    }
+
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/488924/react_spa_provider/script/{sys_id}&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/script/{sys_id}&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;true&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-05-28 21:07:45&lt;/sys_created_on&gt;&lt;sys_id&gt;f5bec6bd07c1901037c7f2ae7c1ed072&lt;/sys_id&gt;&lt;sys_mod_count&gt;17&lt;/sys_mod_count&gt;&lt;sys_name&gt;Handle script bundle&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_f5bec6bd07c1901037c7f2ae7c1ed072&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-07-28 16:34:48&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="ReactSPAProvider"&gt;739d8a7d07c1901037c7f2ae7c1ed0fe&lt;/web_service_definition&gt;&lt;web_service_version/&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1694008278</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>5fab1b510792501037c7f2ae7c1ed007</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>173964b57eb0000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Handle script bundle</target_name>
+<type>Scripted REST Resource</type>
+<update_domain>global</update_domain>
+<update_guid>cfea1f117692501002daf82a79f1e9cf</update_guid>
+<update_guid_history>cfea1f117692501002daf82a79f1e9cf:-1694008278,c6c91bdd8452501052fb201485496abf:-1694008278,d03613d9905250107bd73b6b4bf7d327:1454334132,6a75fe9da0de101048e42e93eaf97998:-1386042660,2da6fbe70a41101091689b80d09f5342:1619798444,efa1c617cc8d5410c118d9cdd193da33:66730755,0d718617c28d541066cfa30b6d38cf44:-1843396813,f7510e53b28d54100e5b15733af0cd4d:-638196277,e6414ed3038d5410808abfcd1f031a9d:1871868237,9701861b1b4d5410b06cf8d7dbdcf14e:1191306141,bfd04a93e18d54103c67bcf023ad47ed:2035747347,4b804ed3558d541060e3cd01a6bce199:512372723,eb10c6d37e8d5410103b0a19d5c08781:969522481,81ff7993fd8d54106f49eca55e49fb9a:-2098694912,2f9f7953938d5410cdb0ed7e615c284b:-213658460,069e7993288d5410dbe266198346e895:-1944760480,64905afdb8c190101d745aa64b6fcc0f:110413506,c2cfc2bd06c190107d13d5be9292faf0:1365109149,b54f8e7da8c190108cc35a5c6b46dfca:-1994750324</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_cat_item_producer_1301258f0781541037c7f2ae7c1ed0c4</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sc_cat_item_producer"&gt;&lt;sc_cat_item_producer action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;availability&gt;on_desktop&lt;/availability&gt;&lt;billable&gt;false&lt;/billable&gt;&lt;can_cancel&gt;false&lt;/can_cancel&gt;&lt;category display_value="Application Management"&gt;6c9ca56707c5941037c7f2ae7c1ed009&lt;/category&gt;&lt;cost&gt;0&lt;/cost&gt;&lt;custom_cart/&gt;&lt;delivery_plan display_value="DEFAULT"&gt;523da512c611228900811a37c97c2014&lt;/delivery_plan&gt;&lt;delivery_plan_script/&gt;&lt;delivery_time&gt;1970-01-03 00:00:00&lt;/delivery_time&gt;&lt;description/&gt;&lt;display_price_property&gt;non_zero&lt;/display_price_property&gt;&lt;entitlement_script/&gt;&lt;flow_designer_flow/&gt;&lt;group/&gt;&lt;hide_sp&gt;false&lt;/hide_sp&gt;&lt;icon/&gt;&lt;ignore_price&gt;false&lt;/ignore_price&gt;&lt;image/&gt;&lt;list_price&gt;0&lt;/list_price&gt;&lt;location/&gt;&lt;mandatory_attachment&gt;false&lt;/mandatory_attachment&gt;&lt;meta/&gt;&lt;mobile_hide_price&gt;false&lt;/mobile_hide_price&gt;&lt;mobile_picture/&gt;&lt;mobile_picture_type&gt;use_desktop_picture&lt;/mobile_picture_type&gt;&lt;model/&gt;&lt;name&gt;Remove React App&lt;/name&gt;&lt;no_attachment_v2&gt;false&lt;/no_attachment_v2&gt;&lt;no_cart&gt;false&lt;/no_cart&gt;&lt;no_cart_v2&gt;false&lt;/no_cart_v2&gt;&lt;no_delivery_time_v2&gt;false&lt;/no_delivery_time_v2&gt;&lt;no_order&gt;false&lt;/no_order&gt;&lt;no_order_now&gt;false&lt;/no_order_now&gt;&lt;no_proceed_checkout&gt;false&lt;/no_proceed_checkout&gt;&lt;no_quantity&gt;false&lt;/no_quantity&gt;&lt;no_quantity_v2&gt;false&lt;/no_quantity_v2&gt;&lt;no_search&gt;false&lt;/no_search&gt;&lt;no_wishlist_v2&gt;false&lt;/no_wishlist_v2&gt;&lt;omit_price&gt;false&lt;/omit_price&gt;&lt;order&gt;0&lt;/order&gt;&lt;ordered_item_link/&gt;&lt;picture/&gt;&lt;post_insert_script/&gt;&lt;preview&gt;JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;amp;sysparm_id=1301258f0781541037c7f2ae7c1ed0c4&amp;amp;sysparm_preview=true", "summary");&lt;/preview&gt;&lt;price&gt;0&lt;/price&gt;&lt;recurring_frequency/&gt;&lt;recurring_price&gt;0&lt;/recurring_price&gt;&lt;redirect_url&gt;generated_record&lt;/redirect_url&gt;&lt;request_method/&gt;&lt;roles/&gt;&lt;sc_catalogs&gt;f82cad2707c5941037c7f2ae7c1ed013&lt;/sc_catalogs&gt;&lt;sc_ic_item_staging/&gt;&lt;sc_ic_version/&gt;&lt;script&gt;&lt;![CDATA[current.setAbortAction(true);]]&gt;&lt;/script&gt;&lt;short_description&gt;This page can be used to permanently remove a React application&lt;/short_description&gt;&lt;show_variable_help_on_load&gt;false&lt;/show_variable_help_on_load&gt;&lt;start_closed&gt;false&lt;/start_closed&gt;&lt;sys_class_name&gt;sc_cat_item_producer&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-01 15:00:09&lt;/sys_created_on&gt;&lt;sys_id&gt;1301258f0781541037c7f2ae7c1ed0c4&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Remove React App&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sc_cat_item_producer_1301258f0781541037c7f2ae7c1ed0c4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-04 07:16:16&lt;/sys_updated_on&gt;&lt;table_name&gt;sys_ux_page&lt;/table_name&gt;&lt;template/&gt;&lt;type&gt;item&lt;/type&gt;&lt;use_sc_layout&gt;true&lt;/use_sc_layout&gt;&lt;vendor/&gt;&lt;view/&gt;&lt;visible_bundle&gt;true&lt;/visible_bundle&gt;&lt;visible_guide&gt;true&lt;/visible_guide&gt;&lt;visible_standalone&gt;true&lt;/visible_standalone&gt;&lt;workflow/&gt;&lt;/sc_cat_item_producer&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=1301258f0781541037c7f2ae7c1ed0c4"/&gt;&lt;fx_price action="delete_multiple" query="id=1301258f0781541037c7f2ae7c1ed0c4"/&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;price&lt;/field&gt;&lt;id&gt;1301258f0781541037c7f2ae7c1ed0c4&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-01 15:00:09&lt;/sys_created_on&gt;&lt;sys_id&gt;8081a14307c1541037c7f2ae7c1ed07e&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-01 15:00:09&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item_producer&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;recurring_price&lt;/field&gt;&lt;id&gt;1301258f0781541037c7f2ae7c1ed0c4&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-06-01 15:00:10&lt;/sys_created_on&gt;&lt;sys_id&gt;8481a14307c1541037c7f2ae7c1ed07f&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-06-01 15:00:10&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item_producer&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;/record_update&gt;</payload>
+<payload_hash>555484165</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>93ab1b510792501037c7f2ae7c1ed006</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9b5e10000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table>sys_ux_page</table>
+<target_name>Remove React App</target_name>
+<type>Record Producer</type>
+<update_domain>global</update_domain>
+<update_guid>4986c8cc3dd9101091a5150744ee137d</update_guid>
+<update_guid_history>4986c8cc3dd9101091a5150744ee137d:555484165,4e1453ff39491010b6e27f8febd77bef:555484165,916d65a7a8c59410dbc73508b02afda3:1856004957,210d21a71cc5941023b773f41902ad96:953322348,4081a14350c154102cc6168e51e68e82:-202892589</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_cat_item_catalog_45bce56707c5941037c7f2ae7c1ed0cb</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog"><sc_cat_item_catalog action="INSERT_OR_UPDATE"><sc_cat_item display_value="Create React App">2cbf637a078d141037c7f2ae7c1ed03d</sc_cat_item><sc_catalog display_value="React SPA">f82cad2707c5941037c7f2ae7c1ed013</sc_catalog><sys_class_name>sc_cat_item_catalog</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:06:04</sys_created_on><sys_id>45bce56707c5941037c7f2ae7c1ed0cb</sys_id><sys_mod_count>0</sys_mod_count><sys_name>React SPA.Create React App</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sc_cat_item_catalog_45bce56707c5941037c7f2ae7c1ed0cb</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:06:04</sys_updated_on></sc_cat_item_catalog></record_update>]]></payload>
+<payload_hash>856736435</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>97ab1b510792501037c7f2ae7c1ed005</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9c7350000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>React SPA.Create React App</target_name>
+<type>Catalog Items Catalog</type>
+<update_domain>global</update_domain>
+<update_guid>ce864000981d1010b63328bb89f719a5</update_guid>
+<update_guid_history>ce864000981d1010b63328bb89f719a5:856736435,05bce5678fc59410c7c75bb6f44610cf:856736435</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>item_option_new_4470bb7a078d141037c7f2ae7c1ed0d5</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new"><item_option_new action="INSERT_OR_UPDATE"><active>true</active><attributes/><cat_item display_value="Create React App">2cbf637a078d141037c7f2ae7c1ed03d</cat_item><category/><choice_direction>down</choice_direction><choice_field/><choice_table/><create_roles/><default_html_value/><default_value/><delete_roles/><delivery_plan/><description/><display_title>false</display_title><do_not_select_first>false</do_not_select_first><dynamic_default_value/><dynamic_ref_qual/><example_text>Name of the React application</example_text><field>title</field><global>false</global><help_tag>More information</help_tag><help_text/><include_none>false</include_none><instructions/><layout>normal</layout><list_table/><lookup_label/><lookup_price/><lookup_table/><lookup_unique>false</lookup_unique><lookup_value/><macro/><mandatory>true</mandatory><map_to_field>true</map_to_field><mask_use_confirmation>false</mask_use_confirmation><mask_use_encryption>false</mask_use_encryption><name>title</name><order/><price_if_checked>0</price_if_checked><pricing_implications>false</pricing_implications><question_text>Application Name</question_text><read_roles/><rec_lookup_price/><rec_price_if_checked>0</rec_price_if_checked><record/><record_producer_table>sys_ux_page</record_producer_table><reference/><reference_qual/><reference_qual_condition/><scale_max>5</scale_max><scale_min>0</scale_min><show_help>false</show_help><show_help_on_load>false</show_help_on_load><sp_widget/><summary_macro/><sys_class_name>item_option_new</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 06:47:33</sys_created_on><sys_id>4470bb7a078d141037c7f2ae7c1ed0d5</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Application Name</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>item_option_new_4470bb7a078d141037c7f2ae7c1ed0d5</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:13:10</sys_updated_on><table/><tooltip>Please provide a name for the React app</tooltip><type>6</type><ui_page/><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><validate_regex/><variable_name/><variable_set/><variable_width/><visibility>1</visibility><visible_bundle>true</visible_bundle><visible_guide>true</visible_guide><visible_standalone>true</visible_standalone><visible_summary>true</visible_summary><write_roles/></item_option_new><sys_translated_text action="delete_multiple" query="documentkey=4470bb7a078d141037c7f2ae7c1ed0d5"/><fx_price action="delete_multiple" query="id=4470bb7a078d141037c7f2ae7c1ed0d5"/><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>price_if_checked</field><id>4470bb7a078d141037c7f2ae7c1ed0d5</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 06:47:33</sys_created_on><sys_id>c0c03b7a078d141037c7f2ae7c1ed0c3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-01 06:47:33</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>rec_price_if_checked</field><id>4470bb7a078d141037c7f2ae7c1ed0d5</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 06:47:33</sys_created_on><sys_id>88c03b7a078d141037c7f2ae7c1ed0c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-01 06:47:33</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price></record_update>]]></payload>
+<payload_hash>1169048707</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>9bab1b510792501037c7f2ae7c1ed004</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9c6950000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Application Name</target_name>
+<type>Variable</type>
+<update_domain>global</update_domain>
+<update_guid>ca864000ca1d1010a8e7d4a1b11103a0</update_guid>
+<update_guid_history>ca864000ca1d1010a8e7d4a1b11103a0:1169048707,5d5e69a734c5941013433cdffdd5785b:1169048707,4cc0bf7a428d141045cce26ec933a91d:-1769699825</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ws_operation_de4c5a5907de101037c7f2ae7c1ed0fe</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri/&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;POST&lt;/http_method&gt;&lt;name&gt;Handle image assets&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    var data = request.body.data;
+    var overwriteImageAttachments = request.queryParams.overwrite &amp;&amp;
+        request.queryParams.overwrite instanceof Array &amp;&amp;
+        request.queryParams.overwrite[0] === "true" ? true : false;
+
+    var uploadedImages = [];
+
+    if (data.hasOwnProperty('images') === true &amp;&amp; data.images instanceof Array) {
+        var images = data.images || [];
+        images.forEach(function(image) {
+            var dbImageGr = new GlideRecord('db_image');
+            dbImageGr.setLimit(1);
+            dbImageGr.addQuery('name', image.name);
+            dbImageGr.addQuery('sys_scope.scope', image.scope);
+            dbImageGr.query();
+            if (dbImageGr.next()) {
+                if (overwriteImageAttachments === true) {
+                    uploadedImages.push({
+                        name: dbImageGr.getValue('name') || '',
+                        format: dbImageGr.getValue('format') || '',
+                        sys_id: dbImageGr.getValue('sys_id'),
+                        operation: 'updated'
+                    });
+                    var attachmentGr = new GlideRecord('sys_attachment');
+                    attachmentGr.addQuery('table_sys_id', dbImageGr.sys_id);
+                    attachmentGr.setValue('file_name', 'image_old');
+                    attachmentGr.updateMultiple();
+                } else {
+					uploadedImages.push({
+                        name: dbImageGr.getValue('name') || '',
+                        format: dbImageGr.getValue('format') || '',
+                        sys_id: dbImageGr.getValue('sys_id'),
+                        operation: 'ignored'
+                    });
+				}
+            } else {
+                var imageScope = 'global';
+                var sysScopeGr = new GlideRecord('sys_scope');
+                sysScopeGr.addQuery('scope', image.scope);
+                sysScopeGr.query();
+                if (sysScopeGr.next()) imageScope.getValue('sys_id');
+
+                dbImageGr.initialize();
+                dbImageGr.setValue('name', image.name);
+                dbImageGr.setValue('format', image.format);
+                dbImageGr.setValue('sys_scope', imageScope);
+                var imageId = dbImageGr.insert();
+                uploadedImages.push({
+                    name: dbImageGr.getValue('name') || '',
+                    format: dbImageGr.getValue('format') || '',
+                    sys_id: dbImageGr.getValue('sys_id'),
+                    operation: 'inserted'
+                });
+            }
+        });
+    }
+
+    response.setBody(uploadedImages);
+
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/488924/react_spa_provider/images&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/images&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;true&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jaydeepdeb&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-07-28 12:27:50&lt;/sys_created_on&gt;&lt;sys_id&gt;de4c5a5907de101037c7f2ae7c1ed0fe&lt;/sys_id&gt;&lt;sys_mod_count&gt;16&lt;/sys_mod_count&gt;&lt;sys_name&gt;Handle image assets&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_de4c5a5907de101037c7f2ae7c1ed0fe&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jaydeepdeb&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-07-28 16:19:16&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="ReactSPAProvider"&gt;739d8a7d07c1901037c7f2ae7c1ed0fe&lt;/web_service_definition&gt;&lt;web_service_version/&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1126716313</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>9bab1b510792501037c7f2ae7c1ed007</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>173964b56f90000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Handle image assets</target_name>
+<type>Scripted REST Resource</type>
+<update_domain>global</update_domain>
+<update_guid>baea1f1141925010537ae0b6671bcacb</update_guid>
+<update_guid_history>baea1f1141925010537ae0b6671bcacb:1126716313,7e3653d91c525010ea82b965cd522b9f:1126716313,e6e013955052501030c8b445431aea7d:1368098585,d4701b59b95250102bf95263ebc7c962:1877581734,8c3053d5875250102ce484cd74259d9b:543583295,c12b4b950052501067f16308906b804f:314587684,f47a03958852501055acf0da39991552:1589313288,9d4a4f510f525010d77d446bf9e927c6:981080025,f60a83519a52501050cebf09c4a2a1f0:1529423493,ed890395565250101db3699421db084d:760672233,b824ba19a6125010af3672ff708f3318:-324211815,18d376dd89de10109fe4e36d24db2945:497761657,10b276dd39de1010e7c64f2b354e6d41:-777577875,fbd462dd8cde10104cb52d228f0a1142:-700503653,e164ee9d84de10104c0c9b910928d780:-1701010651,aff2ea5ddcde101006b1db097984b56c:481049836,cd51a699cede1010c4f9ff6947bc3b15:597305419,2441a2d990de10105108dcc2ecef9be6:-562090766</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_module_8f2a6dc707c1541037c7f2ae7c1ed088</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="React SPA">319e86bd07c1901037c7f2ae7c1ed079</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>DIRECT</link_type><map_page/><mobile_title>Create React App</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>100</order><override_menu_roles>false</override_menu_roles><query>com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=2cbf637a078d141037c7f2ae7c1ed03d</query><report/><roles/><sys_class_name>sys_app_module</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 15:39:00</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>8f2a6dc707c1541037c7f2ae7c1ed088</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Create React App</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_8f2a6dc707c1541037c7f2ae7c1ed088</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-01 15:40:11</sys_updated_on><timeline_page/><title>Create React App</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<payload_hash>1925344003</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>9fab1b510792501037c7f2ae7c1ed006</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727efb55120000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Create React App</target_name>
+<type>Module</type>
+<update_domain>global</update_domain>
+<update_guid>36e644000d1d10109c25b612b2bbd6fe</update_guid>
+<update_guid_history>36e644000d1d10109c25b612b2bbd6fe:1925344003,96aa210b61c154107cdfd9086e7a4e04:1925344003,1d6aedc75cc154103b85b9a0ef58f3a5:580320924</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_category_6c9ca56707c5941037c7f2ae7c1ed009</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_category"><sc_category action="INSERT_OR_UPDATE"><active>true</active><description/><entitlement_script/><header_icon/><homepage_image/><homepage_renderer display_value="Category Items">47ebe8aa3742300054b6a3549dbe5dfa</homepage_renderer><icon/><image/><location/><mobile_hide_description>false</mobile_hide_description><mobile_picture/><mobile_subcategory_render_type>list</mobile_subcategory_render_type><module/><order>0</order><parent/><roles/><sc_catalog display_value="React SPA">f82cad2707c5941037c7f2ae7c1ed013</sc_catalog><sys_class_name>sc_category</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:05:49</sys_created_on><sys_id>6c9ca56707c5941037c7f2ae7c1ed009</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Application Management</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sc_category_6c9ca56707c5941037c7f2ae7c1ed009</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:05:49</sys_updated_on><title>Application Management</title></sc_category><sys_translated_text action="delete_multiple" query="documentkey=6c9ca56707c5941037c7f2ae7c1ed009"/></record_update>]]></payload>
+<payload_hash>-801596534</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>d3ab1b510792501037c7f2ae7c1ed005</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9c7130000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Application Management</target_name>
+<type>Category</type>
+<update_domain>global</update_domain>
+<update_guid>4e864000311d1010627a1180b096a1a4</update_guid>
+<update_guid_history>4e864000311d1010627a1180b096a1a4:-801596534,e9aca167f9c594105c87f9cf2d8309c2:-801596534</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>db_image_0886603e07e5981037c7f2ae7c1ed069</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image"><db_image action="INSERT_OR_UPDATE"><active>true</active><category/><format>png</format><height>512</height><image>92b620bf0786901037c7f2ae7c1ed063</image><name>react-logo.png</name><size_bytes>9664</size_bytes><sys_class_name>db_image</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-25 12:35:18</sys_created_on><sys_id>0886603e07e5981037c7f2ae7c1ed069</sys_id><sys_mod_count>2</sys_mod_count><sys_name>react-logo.png</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>db_image_0886603e07e5981037c7f2ae7c1ed069</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-07-23 11:41:36</sys_updated_on><thumbnail/><width>512</width></db_image><sys_attachment action="INSERT_OR_UPDATE"><average_image_color>#61dafb</average_image_color><chunk_size_bytes>700000</chunk_size_bytes><compressed>true</compressed><content_type>image/png</content_type><file_name>image</file_name><hash>9ea4f4da7050c0cc408926f6a39c253624e9babb1d43c7977cd821445a60b461</hash><image_height>512</image_height><image_width>512</image_width><size_bytes>9664</size_bytes><size_compressed>9660</size_compressed><state>available</state><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-07-23 11:41:35</sys_created_on><sys_id>92b620bf0786901037c7f2ae7c1ed063</sys_id><sys_mod_count>5</sys_mod_count><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-07-23 11:41:36</sys_updated_on><table_name>ZZ_YYdb_image</table_name><table_sys_id>0886603e07e5981037c7f2ae7c1ed069</table_sys_id></sys_attachment><sys_attachment_doc action="INSERT_OR_UPDATE"><data>H4sIAAAAAAAAAA==</data><length>16</length><position>0</position><sys_attachment display_value="image" sys_id="92b620bf0786901037c7f2ae7c1ed063">92b620bf0786901037c7f2ae7c1ed063</sys_attachment><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-07-23 11:41:35</sys_created_on><sys_id>d2b620bf0786901037c7f2ae7c1ed063</sys_id></sys_attachment_doc><sys_attachment_doc action="INSERT_OR_UPDATE"><data>ZbplUB08Fy184OB6cHcOxaW4tbgVd9eDU9zd3d2luBVtcXd3hxZ3d+d7+t75Zu7M3ZPstbKydjLJn/xJhKK8JCoSIRIAAECVlhJTBgCgAf86AvA/6CuhHv4P3BVlVcX/Q6PVl//T9P9+GK39I4Zrr8ZrH//Etdd/ytqz4f8hqy8mq//pz/+b+l9eff8vG6x9GK89/jP/01/+f8P/CleejFZf/yn/K//fgv9sDbzpg//t/clZWV4FcH/YhzhXkYXbKBvLoOaxiWrKx35OEoBBuTbW9iNMyI7GwErMWTtZS+7NBQCgnpYWE1Z1Xz3tCfivHuCf/1aOV/7vcP9XpOt56cmD4H4A2iloYSjxYCv8yb/ftX8Q/c65UuDXtkPchnRJDudmyE0Gsw3im0T/S6efDfxOX4oig/q4nohbOTvI/XDu6iq49aGwjyQqyLWqwvUSxVNkrjTod4TnKi/TfPj76EQGExROs/UoHZz3bz9ntppSXrEU3GcHqNR3DprWa89CQp7au3HEaqnudQiQdUeQv1gE9rb33M2f2DSyBQ9dddnAvRb0xOyD6wofoLm/VR4JoN0WdJ+JKZyGpTbHaU/DQDxi+Be8cR5TkdcnKkU8f9rrbPoaK/y80REQg8nMlYSHjosY+V7Q36cqOTVDJyDPq4dUxc1aEGvh/Q2Ravd2jMl6FDt0uI4q/wDAA6WS8cG9MuPeGCg8O8N0yRWkNBE5qPSb1Vpe3spQWyfRRwtsuJpK7Ozv8WN0uH49CBaD1xyKoT3b5tis9ke6fI1g4i9/8F2kDaLOsnKSCfWp5d/hyJ4gQUTePRIuD2BGKdgGU94HRAt7auUKSe0KMb2O6uBfE8GC6wUIGKFT5vszaqdVvP39QPXynMlljoChDsDsgr8UkUynZseql/LXl19r6Zm5I4nuVc6c7RxAyCAqaTMnvmC2PEw9rAvv+85+7x5xVfOS6Tua9H2UBGURzIFjF1RQv1n3cIguvbqVMp6LKozH8tj7Y2WfgG+HFHr/4z3agHDkk0O7oVyIIgqv+Tdl8VVUH4T0j5cGldOEdd6gZJMxqvwg7LjD4pMe7vZmGW+UaYMbA/h4z3ic7Ydjk0g7lOP1yD/XhoqpxRh0CBQ78TixF4uSe/xko6NMMXgOtPyDF3mB68PQiJDOhHofgGlptkQkSRmhauYwxVYSbK+lq8hPiqAfrjW8LyZZkaFl7FKMzRff6XmD0lWOTmi8pu3l4DlPv4kBceIRLO9c491j6UbNFfusCWmZC2iiLZpR+5efT4Ab0k29lSCreuNDlqL9+Wn8FmAdSbUuMCJ4sAVOsbfTykJjc2T+jlVSuwW+X/650jlQ9wmLpMzChHAqTFPsZF+EkU2x9MBALUhV/Cnfbf3UG17VE6nwBlU1+cp5I9JI7GKEvN9ywbV1sSuCf2ZFaF5Y2Gvx7jPk5AvGNug6Ru0UlrRDFaJ4OVDYJK6uHp5GGNdzDEJ6DdV3/3zrhJUJ3VRr5F3DfRfDfus0Sf2LjXfF1HrLQ6iC92pE9NaEG/OG57lFI1PG8q9I/AOjD4ogDFfi7ZR9taWhAWY3ueqM8/HcsCrryO18+shG1TdoTCq7ju8R+rZifi1pg1nuVCeEMLlmmYUMeB2rlZAgkcmWuX6+8ORGbSKEDUsrOs8U8+cJKOhATzWqv0Oe/CG8wY6ZujM/0NdmWQomTxVsrXVwD9N1HvehPM/m0/y0hAnFUjmRJCXG8l1l2cor9VICKZm02yTgcn5dQA833e3V4T3d3J3Dgywti5lB9FLd09b+XnLW9C8aCupL2vj4IsNU35VvHXIcOsS1s4oWPVvmZ16BLMxXJd1UPoRtqVDvKGDWmDiyVL7WMOFdhmqsLBMp40k2fY9PHXxZ+xKL7GrCJfiVHYlmUGLyjTIjuiztTH20Ap82uLhI4AdArYmu0qEYIrMX0AnR6pbcf39wH7MuB6AsiwTP0JMMkvlmKsBqydJgc6mFhDQsCvn2geSFJVRB2gfz04Z/gg+gXXzFzdy5JiI22cl8BlAiW8NljUBaywPNWA4HuREOzGluSTpmM/Oafvd6NX6pQTd2fY+4vxCabtAlq16LN/46NVpYVDX4G9boATSnu/XREoDVGDq9Nv0HveffERiPUbV6k1/ZRdFLKZLka820dTv9t8MCCzSIEoS3Xj3K6O5eoaZ5FDeXIJODuYBhCmcakwobD7cn37ovgPuivNef2yvwnCRfoIRC3c8x7ZzeBaAmIQhDgL9S+1iAD0sADDIj/BOMfwsA4Sot5BTBF3pTnsa7x5A78YUR+NEAaGa8l/eLgt7k93L7vVuBGgzVDHYd7zQxiV7y/eCWpTmRNoURkYLOevqpLK2WaEI0r/yROH73Zd++bYmX/0ULCW5RnGJ0DyZkGjP5xHUehV7dCj4NG1YLsczsooyEuEbl+yfc9ynXVJiOO5XPq5onxOFOvRhFTUsbJJBTC6/aOhnosYyy24m5ijGoIaYiCAdvdd0h4Va6favkZpDyGZzy59Zlhls9kVin7USqWHKCMtVTCwOh0o/cxuzL7Pct7RPTfntJ/iD9xxyqsjnFzlc3gpoUkONDI3ftbAde52935NeA7XAsWvbayakPMe4Nry3U93FJxSp2gvFLncsEkYkhmM793XfP+lHI9NCF4qNUxp8lPT47XXQHWXSrIq9W7ooZ7SsziFnWQShVJFxy2b1zUGO5k3U80ZTtLal9sGlvje99SDg5IREZXH3tkhbfm7CRneSGob/637xFDCSvHPt+IHbtf7cCw9ooqK1Rt+OH9c1Nw/+8DK/oKrksGkH+eEPTjsJiO1YbCsAi9y2AWZzL5IdHPic5x6klGH+zwBI8rFn7tLaEBzL+WLJ6lC3I/dvWQHv0Mu3h1W2qgBzQGovc5SAHWNEnRO4BFgo/F2Duv8poQLnrEFIywj2OSWbnlBOpkSFVmkD4EfrDtRgCyRydf+iHPqfYKYigLinqVRvVByTdOB8nTwHJlM0cBGPdAzn2jkv3LdTLOz9TfnL8/bxxa0Nw+5AMT6hVMPELG0AxvmlBB2T2GgX6jGBf9DftkTwZHVqg8L208qVnBAha8MB2J7Vke6tpY3tdtiC9xpZ2AsL1XPaCeVorObrxRLc4yC0TInYddUa/Ux6ENDdokTf8llHFAyislG+jUTdfWOpMH97Sq6xD12YJtL0YeUZV3IzVdbmXsgxeuQ0uGfi8dUw6ZDvh6M2au1/cGNbGM6k1WSR0HxynDJwDA7UTXkkWB7hK1X+1Z2qWaWW177k8WxfWc4uk9wlW8/33QswfVtx+SScfXe/NEW/NgYQEju/n5rapRFUyxN5TIN2ILf6qU3iEhA1E9ZiBJDbquicKhpiRgJtp5wygx9KTwMzVidmgpgBJX90TktlxPdYJjq2kPRE1w6OvxCZB6IJEnNlhBr20JgpEop+QyJA1Qy+9fzyWHB69EvuHnDKi33+K8ruiaiZFCbSL09wAs3d5EZxb6Sz/Jc4FRWfo8SF/jTT96onl67L2V+QyzZnePm+9cg5e4OFvfbY1wM/pXhMIDWNy9rx/7L0c9OE3H/VODKoSXPQfnw3L9Nnt+F7Hjcc26RvE30q3qQH3/jgXGxvxvkDgFz28NRfyGBTTPcRwBZ8FlWfHXfwneANW5GN/K46ljY/k0MDtoDqTr1VpKAw9lcT3z0cS0stzQp3i3MWi3700RtPiFQPMK/wByz2ZfOnc1fLvAbh37rPLPl+gmQXWfKx26BLvwaHr3Uu7g/Wm+pJc/JPRcxla7BnJDrQL1R/4DnjPsHyJqy2Hu4Ye2Ix18puaOHxOyg3JeaDowg99Qdq5Qv15j5tz+xzC4T29kln4+YkKQneNTklFRJEF0r/dZr+HxZQS5u5IRKFtsQu9B2Z+9gLaF1rpCD7zTq+zxCZi62y162iuPyjW97oXd/CvKFYI1d1ArpT+2CH5wpVyt8o1djbSYt115j77gbG1GBUnRVIXg/1afKl5l6SmLpRQIZ9LXyU/Tci9x7xQA/agez+e2Rqy5uOzmt4iCvzEpPEtrSRytU1K+DJfXpB/hlHJzOr/1gXRpOGbhp/VXOQOaLdl+WI/kkk9hxWNU8X89sxs11HinTmSuGRVxPTHBWJE37YUJGtAHcEt5wr3etbgmNLIWiDUi+VLhzCGIGNZfcjas3lZr/SsL+KEX8cPQH+vAodJtdIG1RVjhQCJ9mifPhdX2lUgperSJVD6LirkOyimYtNQOxM5tLLXT4sZ0Jw3hgTkHymSKryedi7CxIyrP4ZZYCYPIRvq7QXki/Xv8hgYY7mdmQ5jd9OSFV87aipQvt7pGFOVBYQTrag8iOCKWgR52xSQD4WkFKk2DpD4g68FvySELOZrYSKbtdFZo/GLSWKLkNJU5TcpiunAUqlY0mtChebnsKjD75sAJT3YFMWIAm1NP+EujdF8CZOljXUKxFkWcTEMOdWhxH2FiwY4f2agvD47uKzB73LB1QoAo1Z1gyld8jnfsgjorXeK/cl2dG/jHQQnq4dfWwLV1mGOu0NZRjKRbQoKFKYLXSH9Ws8tCcx+VN8AukmJB+P6jlAfTnl5lZcy092lDToCzN5Bk0TAcXeGbwABhl6OjCWZ811IhTRMRQvppEi296Ll0/LkebdLbWbfOl9tBm/UyMG9ZgxUsgxydl/rfDfmJCFQhnI6wHS6Hh80jsgeD6OZmPUrJ617fOjvuZGYyH401D1XnNq1+aQsagKp1CJGdo+FUEIuZde2bqTLgPb+7Asuy9qD2V3It8U4TavlCgThCISnX0rQKrMEJv51Cya/lkVV+Kkm1XuLKkNe+bCKnFB3zR67e8TP2TZbcmhAfg6eW+8kZAFDb8HrVQB8Dtn3dpRH/Pa4WAK7OuhsGThszgsEEFTeuqg+NWw5PY7DALzd1022++QIhrDX8xefL8lWx93AC3JChOCLRjRgSUx2q1BvQgDLI0tTfA7Qpa/hO8YrfN3paE3xUgDQgKw7M61TQj4UObFZctcEXjlVmc7t/gceX9WhKVvodhA6NGFvhj3ybv8KPNHTNEoRgrEaxgDREoqVpnfCV7+0YvvPGTs7OQzSq2UyRkkg6kvEa9bPlkvmhRMPkWDwuMm1jc7vn6xJBDeoSnXtqN8zAnSZa5dhPfopwi951CW8tPgDEpHFma/WUdMpNCY70p7BIWzXPBZ0H9KQwHiGoQMzClGbXuImET3rt/45HIiaHTMCG1UgMbHmbj5XVGL8SNO2mjwaK7eqRBV0bpUMhde3hhNyeCJce/vMFLrhhZToAJXLIHYDHrzyIm/F/hxtFilhXd9+y9zgU36iFtqjEvG5ukqUZlRcJB6uz9cBYRF/+cqNIpCVHtF4rBEocHbGemhSLktbMbFFfDZx5WDVrXs9v6Q58GdDKis+LMqOKaVPS78sKQ9txaIjqgibe3Pdzc+UOAgJRaoI4OG2xe23H0MTTHaPzTidWvAkoNans/8ZOEYrVe0tZNe5giE4XIZ32kfRq88gZZ6FYjG5hc1m/yhAoRhALN80srD5pPH95zWXtvaGf5zlpgiX/WgCmOzJ5Jk8xCvRO/g3EXK7SvAulVLN0jZzfkwUb3e5aChWWzqTrJ4H0+pw+9+ke/KYAWI+okDkPCJ4cBluaZ8nQkaOnWU9PgGM/MwXa4+3uLQhlsPUn1DitAMuR859AAXRH3X3RXKwngF+SeT3MC0I8eA5rw4goj+y12Rifa5MdUv1J3vH8sFGAq9s/Va4XWVsyvf76MVO+mdpexhLiKp8I/zIOY8K+bT1ojJCJrY5BadUqgqxkZQmVDh8PLP69XddJUqy5iJoFdmWUdcrok8Fw2Yp5AYhsttR3ZziEdoq3jKFDxD2h+bbBn7ytRlYWBmcygY0GRy6ZuKvcDiJc/UhEwHkSUaBmKTXDFabCYXpxROlVNeVQog3wTYriSw76f6EBa+SM6Ij+telueBwTIMPLlwBXnXUCsVdcbnJ6FSbfpwY+OOvq4xs8SN4vo7GeMm85DVRuaT+7mcJFDWg5HKmmbPbHr4lB5hEAwDqqKRVSxA6p3DOPvf9ufWICxEcgFbqzoqzUvtc//WDjCYDQpMEsUzAlhrxcsq1cyUeM4YSCrRGgwqY95OcKiABaHPkw9DdkWqviww0Wonx/1biT8WEvY2FRrHwF20rle4pwxT3zAmVxUpX40iuu2EndCjOniJmHZcM0DLBWyPuqQ12BCBMh6fWI4GBfa1Bnq/leJ8w5U4QzY02LYJFm4v2DNdFBfGT7dwJ3MTw+Dp+UJBsgKYDPTqvr+dWLml+ptsCmgsp2DZYWGGgMzmtcq34CwE2l/Y9+Y9jpWnxPtBkNuk4JtPoW11NW/Lqq75CosT13eqwXM6y36XToijh1bFRlXbHxVUIB47cbmhKA1al9qPMvvBj/nDy5CTEwvQJJVpWqoyB5BagIo/MRuCNjph64gxHMpZCSZHSYVVp2ERY3MvxEqpUcKbOC6xY+aoybfLnHPqtpqaX+HMJm+RyHFWT2oyoXoPKD8l02ON3J6E5SsB0rnHdmYp7RRZM2o+aTh46cQ0e+AA2ihH7vB7SV/WqRFGgF1IoTBgtFQdNfvq0QG34jtvnEOGoAPEv4tfeIiby5CzrPSjkmWp29MgaeFUOvEgCX+1gpBR3ke45kKiE5HARSmqMt85Lq6H4St41Dlvorf1zmW3k8tBb/VaZ88ULSgA6yinmx5k1cPM1u3zdpNsAvOLxQTS+jY0UCZdOB2vXPBrvdzGTz/EpFxR41K8yKa4/qwD8sRwLAFAhW/mqo+uN7ZBtIUc23BqaJtPMmpu4CVJx/OJ9XXeWNu+ozxpUlMreNAGhoyIR4PcUXLTVWKvn3PReVAUlugAHhJL/INEfNeWYe6TJZupkMxCD2qeAgldLSXsn0D+kJrmlYuwSL11jDmfPzEJK3G26GubGeG92MOtRLNbhk1gFRb4oe/osoNZHbTNfIN5FNj2anQnSzPjHFQOklPuNJ8iyYRCJY/bl+PtdyYMqV/KtTAqU4U0SFA4SD1/Dp4vuKqAp9U9JLM3Sr4BlhXoc+Gohjr+0zhhUymhQaISblf0Arq8k+BTHt7Qj3KstEo09j5io4S6B/sbwrJaL3vEUa5AdzB/UCnx4krbTZIDTmkr91SVd6izvTWLTDS4duNRVoP+b6WZGwbC0H//gpGGk5BupK0oEie4xcp8WQqgqSshPhsyQWqTxskODfpgIvcM4sF53dKtwgeGC6ZYcrARM+LxGSChqIqHuRAnFfWEAnQH38bpi9IChUA8KBHIuRc/FdqlqKLSQv+x0RpNpKlQjhiPXJMzYbbDCM/5ngYFNZ+Nlf5R2bX36a0X/OyfUqRRrmlb57zYlFF6Ftq9rlQWlM9p/ofWlP5jffPkKPMClaFLgCr0+6DXz/tdfphOdOSciUeFlLrsJO/yiSMliemrW2NJn9zFEkSlJaG6CRHhwD39EXkTr12WToHI0H3PhrdlVzENhMp3Pwp3C2kJQvq2DJrnZO/GahcTX1X6Z0ypqCVB2k1rXBPOEUyVle9LgIFvMOf1ZsCcdBvpDXHwON7YtyS/03rchPD2zcbT5K5eVl5eC6pkdZNdPXGxX0NLVv7wKRpuguhpWoqcrex7QCmznMOoOLT4jgJBI844drpB/9uiTl29ehMX3GNKS3969GEQVozJbyDjBQxeG2HGW8tuLYD3b4pVUruuO+IxP3NL6sOpihtQqv/vaemPuKpOhWm1zCqvdmByldSofEJ3IY7Drzuoakly8HS8Lghit4tCsMkQCg0saGqvQjFKIuPHtx+1XNLMO8dIYWXas34KGbtWyjhwfBdkTdKVJGqAOUMDUsBbWeHnnQrMudKSKCRoBgZa8Zntcu1uGbmbNp/LJutg74LsjsIIZKl5QZHYBdCqW2q/SsYZ+DI4ONBi1ZI4Z1QtZL0qOtBFZVOayQ59k3GAxzpiAfhwphWllXlfC+UViUzFB08f6NHr8cWE5snwU12Ph1Fn9PSFNAtdbJYmb/GG2mU5OTIMIqjSIqSDtMVYsMtp3hMheCVsS3qRimLaMgmhRJBg++OLaIiBnynx9sXlyyl0cltfD9VD+OfXKLiWYj3rxF0oxT8FehR4XHrUfd7Kc3GB+T/V1xJZfzE1fMZMVy97PUwKhEK8t2iG3gFFY8FW7jgESpnTYiuC06nzTChn8JIjoC4/vS4XeNIeMX+vYc7xEgtMTD1wBu6S0DdrSvar7SBrqVyOn4tdH7J9MyEercLCyS3ZhWKPG0gjKnUUXrNcQFeh7F90t+TrLBWIQDYqph0Z+aiEHbhHDPaBT5gOHjOu+WLlF8+cyfBGUqKUB83QlfPJBf22ROoKeWNth13WMajkMw3yshSrGqAkB/ox4WTeDnnulWvPAeWtQVFrXXlmOfnqjzPr6rCjsJIZsC7vqNLVGzGN5jeZ1el+ozACne3kCejMNakV6T76vCHhHrgWXVqWq2VjQpmQncgkxeJSgTVIsfqBI9bNq75o+a2YZzsgGV5fnC1GAI5qZcmtIsx0vvRETPt5zmQUj8lNNr8bXmtQeCXrsDNWDaLT3vgka1d0FQ9FBJYwbsvo06Pb5pbV2IAN2L5YGCME0yMClWxFjrCfxMng09J5exaYfKaaQxcAw+T3HsxVosIpWNn7Uk2sl5rJz05y+G4NLf8F9YUOTVLwLi7CBx93lc17QKgrnusFjZT8Kep8vw2P9c4+DEq54sD575bO96e6gCBzTq61OJzhOP6cACDhHFuUIgkM+Yzs4J4YFbB594w2pDfkjKTi591iMhfnN4WuPPzeWcgUWYO9tTlhQHlaHN64swnKvFgs7o7teyE1am6q6D/n3LX6CcvXbaorhAoF4pj0bokz4AbMN4038uPBHkbkTTNQ6lLhMlGD1o+nN0EeYjRClQS31qqSYu8Qb8Bs69Wwj7CnMggK5vhPODnKVtAZJv108dBb/coJj91162z6mKGkg058KGVmypZ2zn6QfZNuIGkTypkjI7WdjfY5v/MUvOptbVmE+428f6nnxgLjVsMqmmNHuSIa5tojCzkdiRHfu5Urr7nhop8Qq+ADISWN+4Z9Yqg4fXikqvr7cECZJygkOc0lh0UamTwGl2gj5U5hhFBi4RbVu52PCfAKZDdjvdH+cMaX2XqyKV4gditgFuL/CURzwcUuN8u850GpKrP1BjP5M4f+DHiuMopwuaGorlUp5R8Xxaxhyjz8CyhieCMBIjWYGqvzqHoGsBA2fcJqnh10ewVaMIg8gf8Vuz/O+t+Tz9KG+TsMx5itvKHaC5oROduJ+NV2PiJI5U79/64+eNklc3RrExrnKueFKcKWC+4JyZiTtO0XqYgDIYBU0N83NRrOYcX+Kl8uL3t5jb4z1mtyFl35hNLhq6bw3gh9bZz6deybuOn96dYkscTC0yLt53Yz48LLdZ18ntX7cjOlyKvkq9n4Lb/6aw02cKegt5sxM1nSQtPMFM/bjRTzv3cCY7ONT/ygZxwUy5PFr3UaKx/S3Sz9jsq4Tg/3ND/u8h5zluiiXe1vxy7nixy5unldn7tfUhyhUlKDDyeO8DnjsvPITciYF+Fdw9MgZAujstJNIZ9AtrTj06vT1sMBf7qzPx0vGPTRvwvTbQvY5b5wvpH0a2VbjUac9yWQyVe2xesxPxnIt75bhMnCsxd/v+FIHxfd3VC/4q54Lr8fjyrJ7q+pPmaHGtyWfGsdeuxbybfUHw9dhF6i8/dOKd7XTh2V0RIWLxNIvvnCTQ+OIohxpaqUrPF8DyGKqLWHW1faIzzyULbLJp5TjVd4i67oZxAn+ck4GWS4vNHaT+DFPUZTZ+w1oGkq4z5homKet/HX1mY5+1x10geJrN2ClWt9uQtKkqGow91+EbXJCr8x2XQEOMBo0WWIuTHzzklnTE7vZQt/P4Fs4i6Ud7AjgrvhVGGYkVCcKX5nj5nJ3Z3e6cdS6Sg6C2ww4zZoRM9l2aLpv++C3eXG2axBCgRl4cFOYukoA4YcSMOm6aIHuCHMeQzufci98ohpq1A1ycL/mqP9db2Bsw9lr+cMMr6KB5LmOWU3sqUenPVDhhEqStgs7iuVG2Kg1d9JaqFYtsGKvMMt8fONKeaIMjWbRx7G+LphQlCjsQRApuhT8WO/duDLDwUW8EUsNHp85K+PiPxZjGUvKyNsbOBy0Ttw6HF5nquZHNYxUKcByvlmPeKcKK9ledSUE0SsEOU1PpGlXWZWLLqTPASSjMKsnxYpMCGrjdQEVcfMSqWDYjZlIGuxCSa4eaHthLBnGNXhmz1axw7LtPhnMTb7D/elkeTiXnjmKaYznVyHuTo/aTC/S2WTjsfpe4kZEC+U1uI12MGp5aAno7okNp6NMdyxkOVkQs39i2kR8zrHtnoFFRqUyDUUQ81it9k9ejrbtgodhtfWIk1DcwuH3ItEkJ77UgZpyocp4GrwYxt6622RGQNtZNRJMv4X43BrXjrpjwnCcZXqlfqPyvNpfbzczk8kQaCEngutKtaU++hiGXHzBTEXfo/h4pAy14h9fTtZvVA/rnI78Kgms4tPUxQO9q0v/dkKU3VAyYPNXb2YUbhOJq8lcjwokyXEAhmA6YzUZqUK3Vv4aMNJ1Dq/nujSOrQptvKV8QDQFMQiJ6LZMimDqBx/bz/uGKRyYBuBvUs/HolgTJXlFWic6IcmoPE1aICD227EY7kDgFPt66P1MEIk45ZCcFBIsrh4a/UykKsjrtxavgMyiudUdtobpuOO8GkjU22VorgDAyiBVDqvdIdHAWiDuIUrSaAP3lIF52xKvrRFVEQy5YXSPQxG8hvy5fsNr9GxJNdrIqidxyeqQjFGoMMUlgc/dl/GrYE3cSbSqE4/Yilph7j1ji2wC78Xi5sCT7SN78eMHLBXpWyot+cN8vy/qWQziUE+EK78DkpOT9BInaspW/wFu0sEDFogdPx9fkgIUeAG0eqKDkXzt8N1JaAD69Ig3oqkLKKHWdXwxnxLbC6jLKqD/OaixlPQ/2gj0/7n/y86nBsp7tuwzNeAVDWZCDYuJjQrwqmM0AyhDwQdgGwphJcpzR1UM5EbThsbvfKI6blx1JizjIRP68m0+OJSEaw8IuSntbsN4hwi97KeIp0DvrLQVfSeZ6wU01tJ+qhVimC2xJadxlE6DqT7EKWZHv08WTW4Ay0FHncPa7Mv5xxD0c3IeYUy868+b85/EmsPStZMzETdaHoLrCIL0cajrkFE9NCKT58dxPRx8XvuSzzZfX0Ax2S2jBTYk0VttRauD/orBX14yYoFzxDs8FHTq6aCY+ZLMT7jZbK9my8qXtjNaoBmZEvzeV7w+Z0ZYhkb6I/AAe39H2hdSrHiZTrVfgSpvN3pnW0pkFOU7WtgI1NpWLFEETiiXoR/S+vGfx0t4QBhLAiPq+PXIljtGAP4EyqNXrXJtH4sNuGCMULFvdbQBXdRgZvUQqNbREBNp+mTe0MdeS0o5GXoYC5dSPBfxSio6e1P8xGmFl4z7oFy1NqEfxoeUuYsbBmA8xssmjl/gqlUYC5s033FTsiOsfD9u+yBEj3rKXJs1HaPpZx5Kg6IfluD0t9/ZZgGx4kJnhoq5sXyfHa1Qp4Dqt/XqhIQQ3eVhk077MGEb4bnymXNZlhOUBTdgr9RxvsH7or9Trr0KRElkE133Kr2rio2xgBkxtI5Brr+uysV56kij+OrKnOH4tzH+vdIcNpfZuvy8NWwIyWdm4r7HhGds4j7Nvdkd3HsmqFbJtxjSVD5Q7Zpi1wQadHsg6WL3D1e2LvfIP162A+SGF7MgN3SMnlRSrL5W2m5ueNoWMmxu0FWEWDa5sU9xGE8tPdllqfJA81dJUI8d9f4wRW+boCuzsVJX2RYSiY2oCRMWwkrER2QMkGImYzASpTnrSxTkmG5zlGK3geHBPBKRi2MU1bUTKlzZmdYiuioA5PqJ94pQRBM0i0DKiAL0bepzvtpcDsJnAWvdoRlr/iLBAtZW2D3m/UzCsYh1O2SVls97IQhcpkg2gNJWJTm20wmV/iGMp/B0l5suCkK2WrnH4dpAxpNBhX0MFWOq4RU7O0ZEx2t94sbc9e1eBW9ymzuPWGM6fqmiYCyQrMIP5oyqvnywM8V/LD0swNj8QxI+FnebPh/E8zsONhInXbnIkQvMdxX9vHGPQoJdfN2KCLmcGjj0XngFe0k0hQ+S1DdfmaMRCBTSYZMWXb51nIjafMlSKXaVAHvWQkSZZq37yYfQLQltobXkExdua3S6/R9gWL2xzJtoU2+jsszC0OG0BAqPsEl3r+IME3AsOzZsJwfeQGzsfAsZ5BD8RH7feBjfXfvo7TAO8IN/uSYJ8NES6td1ekkqn2KkFgjmtQ+NHvxNebOXYqxfPcRMiiDZQVnZJMsQ6eZBjrUHOvISxyXdle3RF0rgECgDQ0GXsqe4JbKIyAuRTS0spvlYPjR2DqUnoNkfKBLFFwp06KCfwAC6p6Z9/B1F2JY9UbOMZyjpU2C+Y3NH4GBZoZIdRsLaQk7jYKCUpaoZ0V+K6HwHR7A6Irjff/kgKfaA7H1KM3OUxye9raNuSyFGXzHlKFVk5Z/Y5rCP6P/mMZOw/7vdEz9KJwGG77CfVaaTdfdOC248mOrk4FcE+RT30ZGDBhqEk8bHv2WAtIhHY4c0d2IkAMZWDjo/3+Zh/O+725Y0h8tE2zLB65nLLQHcXs/GtN0HP7e8QML4VRPXWFSXRNP6V8GBcg98DQxJ+AvWj8EBi4FPXT1d6QcstlMuxvURCtK71VdEboEKkmt9X4zXOfSZ0IRr0ROtHCZGD56PP7ZtT5y0kk3f+vO2zv6Lb172Uv/+JJEfflgbpAP+n7CF0osZOttOPV//N5IWlxf7KWIY+P8BjFMXSsAlAAA=</data><length>12868</length><position>1</position><sys_attachment display_value="image" sys_id="92b620bf0786901037c7f2ae7c1ed063">92b620bf0786901037c7f2ae7c1ed063</sys_attachment><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-07-23 11:41:35</sys_created_on><sys_id>56b620bf0786901037c7f2ae7c1ed063</sys_id></sys_attachment_doc></record_update>]]></payload>
+<payload_hash>-1760639028</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>d7ab1b510792501037c7f2ae7c1ed004</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1737b8128cf0000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>react-logo.png</target_name>
+<type>Images</type>
+<update_domain>global</update_domain>
+<update_guid>8c686033e9c69010ffa461130a84291a</update_guid>
+<update_guid_history>8c686033e9c69010ffa461130a84291a:-1760639028,22b660ff9a8690100eed619aa701811a:-1760639028,9eb620bf098690106dbcce9e05c8736a:-2043694873,deb620bfc8869010a733d5892e7d6c67:-1985949131,53a620ff6586901037d4d0f034d02655:34275060,b7b4e47fea86901066cf0e3760abeb2f:-743698307,9486e87edde59810de0e7a843248f3c3:-90660277,4886603e8ae598108852078667ba336a:34275060</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ws_definition_739d8a7d07c1901037c7f2ae7c1ed0fe</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_definition"><sys_ws_definition action="INSERT_OR_UPDATE"><active>true</active><base_uri>/api/488924/react_spa_provider</base_uri><consumes>application/json,application/xml,text/xml</consumes><consumes_customized>false</consumes_customized><default_version>No active default version</default_version><doc_link/><enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl><is_versioned>false</is_versioned><name>ReactSPAProvider</name><namespace>488924</namespace><produces>application/json,application/xml,text/xml</produces><produces_customized>false</produces_customized><service_id>react_spa_provider</service_id><short_description/><sys_class_name>sys_ws_definition</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-05-28 21:02:10</sys_created_on><sys_id>739d8a7d07c1901037c7f2ae7c1ed0fe</sys_id><sys_mod_count>0</sys_mod_count><sys_name>ReactSPAProvider</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ws_definition_739d8a7d07c1901037c7f2ae7c1ed0fe</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-05-28 21:02:10</sys_updated_on></sys_ws_definition></record_update>]]></payload>
+<payload_hash>-1482024408</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>d7ab1b510792501037c7f2ae7c1ed007</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>173964b58050000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>ReactSPAProvider</target_name>
+<type>Scripted REST API</type>
+<update_domain>global</update_domain>
+<update_guid>47ea1f11fd925010d4e39c4e277723d1</update_guid>
+<update_guid_history>47ea1f11fd925010d4e39c4e277723d1:-1482024408,4c0e8a7d02c19010c5f4cba6bc921f9a:-1482024408</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_module_469a210b07c1541037c7f2ae7c1ed088</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="React SPA">319e86bd07c1901037c7f2ae7c1ed079</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>DIRECT</link_type><map_page/><mobile_title>Create React App</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>200</order><override_menu_roles>false</override_menu_roles><query>com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=1301258f0781541037c7f2ae7c1ed0c4</query><report/><roles/><sys_class_name>sys_app_module</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-01 15:39:54</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>469a210b07c1541037c7f2ae7c1ed088</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Remove React App</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_469a210b07c1541037c7f2ae7c1ed088</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-04 11:29:43</sys_updated_on><timeline_page/><title>Remove React App</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<payload_hash>-1853341405</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>dbab1b510792501037c7f2ae7c1ed006</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727f19bbb10000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Remove React App</target_name>
+<type>Module</type>
+<update_domain>global</update_domain>
+<update_guid>158e8c44ba1d1010bb0d1c75451d2e80</update_guid>
+<update_guid_history>158e8c44ba1d1010bb0d1c75451d2e80:-1853341405,2a1e0880b91d10106f1f486dad531856:-1853341405,1e9a210bafc15410e5fc7ff49d04ed89:-1885766241</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_cat_item_category_690d21a707c5941037c7f2ae7c1ed092</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category"><sc_cat_item_category action="INSERT_OR_UPDATE"><sc_cat_item display_value="Remove React App">1301258f0781541037c7f2ae7c1ed0c4</sc_cat_item><sc_category display_value="Application Management">6c9ca56707c5941037c7f2ae7c1ed009</sc_category><sys_class_name>sc_cat_item_category</sys_class_name><sys_created_by>jaydeepdeb</sys_created_by><sys_created_on>2020-06-03 05:07:28</sys_created_on><sys_id>690d21a707c5941037c7f2ae7c1ed092</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Application Management.Purge React App</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sc_cat_item_category_690d21a707c5941037c7f2ae7c1ed092</sys_update_name><sys_updated_by>jaydeepdeb</sys_updated_by><sys_updated_on>2020-06-03 05:07:28</sys_updated_on></sc_cat_item_category></record_update>]]></payload>
+<payload_hash>1931731935</payload_hash>
+<remote_update_set display_value="ServiceNow React Toolkit">87ab1b510792501037c7f2ae7c1ed003</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jaydeepdeb</sys_created_by>
+<sys_created_on>2020-07-28 16:43:04</sys_created_on>
+<sys_id>dfab1b510792501037c7f2ae7c1ed005</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1727ef9b6ac0000001</sys_recorded_at>
+<sys_updated_by>jaydeepdeb</sys_updated_by>
+<sys_updated_on>2020-07-28 16:43:04</sys_updated_on>
+<table/>
+<target_name>Application Management.Purge React App</target_name>
+<type>Catalog Item Category</type>
+<update_domain>global</update_domain>
+<update_guid>41860000171d101089923a4f2dea09f4</update_guid>
+<update_guid_history>41860000171d101089923a4f2dea09f4:1931731935,e50d21a7bbc59410674c4f5e3fa04b94:-1048338432</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
