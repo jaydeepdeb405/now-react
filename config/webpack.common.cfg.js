@@ -34,10 +34,10 @@ module.exports = {
             test: /\.(sa|sc|c)ss$/i,
             use: ['style-loader', 'css-loader', 'sass-loader']
         },
+        {
             /*
              * ESLint loader
              */
-        {
             test: /\.js$/,
             exclude: /node_modules/,
             loader: 'eslint-loader',
